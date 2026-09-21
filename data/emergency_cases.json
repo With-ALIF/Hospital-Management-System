@@ -1,0 +1,7 @@
+[ {
+  "id" : "E-1001",
+  "patientId" : "P-1001",
+  "priority" : "HIGH",
+  "description" : "Chest pain",
+  "status" : "WAITING"
+} ]

@@ -1,0 +1,16 @@
+[ {
+  "id" : "D-1001",
+  "name" : "Dr. Karim",
+  "phone" : "01700000001",
+  "gender" : "Male",
+  "role" : "DOCTOR",
+  "specialization" : "Cardiology",
+  "available" : true,
+  "dutySlots" : [ {
+    "startTime" : "09:00",
+    "endTime" : "13:00"
+  }, {
+    "startTime" : "15:00",
+    "endTime" : "18:00"
+  } ]
+} ]
