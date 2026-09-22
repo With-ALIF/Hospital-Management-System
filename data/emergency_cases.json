@@ -3,5 +3,7 @@
   "patientId" : "P-1001",
   "priority" : "HIGH",
   "description" : "Chest pain",
-  "status" : "WAITING"
+  "status" : "IN_TREATMENT",
+  "arrivalTime" : null,
+  "assignedDoctorId" : "D-1001"
 } ]

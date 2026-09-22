@@ -1,50 +1,79 @@
 package com.hospital;
 
-import com.hospital.ui.*;
+import com.hospital.ui.AppState;
+import com.hospital.ui.components.SidebarView;
+import com.hospital.ui.components.TopBarView;
+import com.hospital.ui.views.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class App extends Application {
     private final AppState state = new AppState();
+    private StackPane contentPane;
+    private SidebarView sidebarView;
 
     @Override
     public void start(Stage primaryStage) {
         BorderPane root = new BorderPane();
         root.getStyleClass().add("root");
 
-        String css = getClass().getResource("/dark-theme.css").toExternalForm();
-        
-        HeaderView headerView = new HeaderView(state);
-        state.onMetricsChanged = headerView::updateMetrics;
-        root.setTop(headerView.build());
+        String cssLight = getClass().getResource("/light-theme.css").toExternalForm();
 
-        TabPane tabPane = new TabPane();
-        tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
-        tabPane.getStyleClass().add("tab-pane");
+        sidebarView = new SidebarView(this::navigate);
+        TopBarView topBar = new TopBarView(null);
 
-        Tab doctorTab = new Tab("Doctors", DoctorView.build(state));
-        Tab patientTab = new Tab("Patients", PatientView.build(state));
-        Tab appointmentTab = new Tab("Appointments", AppointmentView.build(state));
-        Tab overviewTab = new Tab("Dashboard", OverviewView.build(state, tabPane, doctorTab, patientTab, appointmentTab));
+        contentPane = new StackPane();
+        contentPane.getStyleClass().add("main-content");
+        showDashboard();
 
-        tabPane.getTabs().addAll(overviewTab, appointmentTab, doctorTab, patientTab);
-        root.setCenter(tabPane);
+        VBox center = new VBox();
+        center.getChildren().addAll(topBar.getRoot(), contentPane);
+        VBox.setVgrow(contentPane, Priority.ALWAYS);
 
-        Scene scene = new Scene(root, 1150, 740);
-        scene.getStylesheets().add(css);
+        root.setLeft(sidebarView.getRoot());
+        root.setCenter(center);
+
+        Scene scene = new Scene(root, 1280, 800);
+        scene.getStylesheets().add(cssLight);
         primaryStage.setTitle("Hospital Management System");
+        primaryStage.getIcons().addAll(
+            new Image(getClass().getResourceAsStream("/images/logo-icon-16.png")),
+            new Image(getClass().getResourceAsStream("/images/logo-icon-32.png")),
+            new Image(getClass().getResourceAsStream("/images/logo-icon-64.png")),
+            new Image(getClass().getResourceAsStream("/images/logo-icon-128.png")),
+            new Image(getClass().getResourceAsStream("/images/logo-icon.png"))
+        );
         primaryStage.setScene(scene);
-        primaryStage.setMinWidth(1000);
-        primaryStage.setMinHeight(650);
+        primaryStage.setMinWidth(1100);
+        primaryStage.setMinHeight(700);
         primaryStage.show();
-        headerView.updateMetrics();
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    private void navigate(String name) {
+        switch (name) {
+            case "Dashboard" -> showDashboard();
+            case "Patients" -> contentPane.getChildren().setAll(PatientsView.build(state));
+            case "Emergency" -> contentPane.getChildren().setAll(EmergencyView.build(state));
+            case "Appointments" -> contentPane.getChildren().setAll(AppointmentsView.build(state));
+            case "Doctors" -> contentPane.getChildren().setAll(DoctorsView.build(state));
+            case "Doctor Schedule" -> contentPane.getChildren().setAll(DoctorScheduleView.build(state));
+            case "Reports" -> contentPane.getChildren().setAll(ReportsView.build(state));
+            case "Settings" -> contentPane.getChildren().setAll(SettingsView.build());
+            default -> showDashboard();
+        }
     }
+
+    private void showDashboard() {
+        contentPane.getChildren().setAll(
+            DashboardView.build(state,
+                () -> { sidebarView.setActive("Appointments"); navigate("Appointments"); },
+                () -> { sidebarView.setActive("Emergency"); navigate("Emergency"); }
+            )
+        );
+    }
+
+    public static void main(String[] args) { launch(args); }
 }
