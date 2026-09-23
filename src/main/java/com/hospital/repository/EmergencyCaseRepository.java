@@ -5,10 +5,6 @@ import com.hospital.model.EmergencyCase;
 
 import java.util.List;
 
-/**
- * Stores emergency cases in {@code data/emergency_cases.json}.
- * Every modification writes the file again, so no explicit save call is needed.
- */
 public class EmergencyCaseRepository extends AbstractJsonRepository<EmergencyCase> {
 
     public static final String DEFAULT_FILE = "data/emergency_cases.json";
@@ -17,10 +13,8 @@ public class EmergencyCaseRepository extends AbstractJsonRepository<EmergencyCas
         this(DEFAULT_FILE);
     }
 
-    /** Used by the tests so that they can work in a temporary directory. */
     public EmergencyCaseRepository(String filePath) {
-        super(filePath, new TypeReference<List<EmergencyCase>>() {
-        }, "Emergency case");
+        super(filePath, new TypeReference<List<EmergencyCase>>() {}, "Emergency case");
     }
 
     @Override
@@ -29,10 +23,9 @@ public class EmergencyCaseRepository extends AbstractJsonRepository<EmergencyCas
     }
 
     public String nextCaseId() {
-        return nextId("E-", 1001);
+        return nextId("EMG-", 1);
     }
 
-    /** All emergency cases that belong to one patient. */
     public List<EmergencyCase> findByPatientId(String patientId) {
         if (patientId == null) {
             return List.of();

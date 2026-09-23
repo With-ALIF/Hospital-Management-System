@@ -1,13 +1,24 @@
 package com.hospital.ui.views;
 
+import com.hospital.ui.ThemeManager;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 public class SettingsView {
     public static Pane build() {
+        return build(null);
+    }
+
+    public static Pane build(Scene scene) {
         VBox root = new VBox(20);
         root.getStyleClass().add("main-content");
         root.setPadding(new Insets(24));
@@ -16,9 +27,9 @@ public class SettingsView {
         Label sub = new Label("System configuration and preferences");
         sub.getStyleClass().add("page-subtitle");
         VBox head = new VBox(2, title, sub);
+        VBox appearance = appearanceCard(scene);
         VBox general = card("General",
-            row("Theme", "Dark Indigo — Professional Medical"),
-            row("Primary", "#6366F1  •  Background #0F0F1E  •  Surface #1E293B"),
+            row("Theme", "Dark Indigo (default) — toggle below"),
             row("Typography", "Inter / Segoe UI — 12–20px hierarchy"),
             row("Spacing", "8 / 12 / 16 / 24 / 32  — consistent")
         );
@@ -31,39 +42,64 @@ public class SettingsView {
         );
         VBox about = card("About",
             row("System", "Hospital Management System 1.0"),
-            row("Stack", "Java 21 • JavaFX 21 • Jackson 2.17 — Dark Indigo"),
-            row("Build", "Desktop-first • Minimal • Data-focused • No glassmorphism")
+            row("Stack", "Java 21 • JavaFX 21 • Jackson 2.17"),
+            row("Build", "Desktop-first • Minimal • Data-focused")
         );
-        root.getChildren().addAll(head, general, data, about);
+        root.getChildren().addAll(head, appearance, general, data, about);
         return root;
     }
-    private static VBox card(String title, VBox... rows){
+
+    private static VBox appearanceCard(Scene scene) {
+        VBox c = card("Appearance",
+                row("Active Theme", ThemeManager.current().equals(ThemeManager.DARK)
+                        ? "Dark Indigo" : "Light Professional"));
+        Label themeLabel = new Label("Switch Theme");
+        themeLabel.getStyleClass().add("btn-primary");
+        Button toggle = new Button("Toggle Dark / Light");
+        toggle.getStyleClass().addAll("btn-secondary", "btn-small");
+        toggle.setOnAction(e -> ThemeManager.toggle(scene));
+        Region spacer = new Region();
+        HBox bar = new HBox(12, themeLabel, toggle, spacer);
+        bar.setAlignment(Pos.CENTER_LEFT);
+        bar.setPadding(new Insets(8, 16, 12, 16));
+        HBox.setHgrow(spacer, Priority.ALWAYS);
+        c.getChildren().add(bar);
+        return c;
+    }
+
+    private static VBox card(String title, VBox... rows) {
         VBox c = new VBox(0);
         c.getStyleClass().add("card");
         Label h = new Label(title);
         h.getStyleClass().add("section-title");
-        h.setPadding(new Insets(14,16,10,16));
+        h.setPadding(new Insets(14, 16, 10, 16));
         c.getChildren().add(h);
         c.getChildren().add(new Separator());
         VBox body = new VBox(0);
-        body.setPadding(new Insets(8,0,8,0));
-        for(int i=0;i<rows.length;i++){
+        body.setPadding(new Insets(8, 0, 8, 0));
+        for (int i = 0; i < rows.length; i++) {
             body.getChildren().add(rows[i]);
-            if(i<rows.length-1) body.getChildren().add(sep());
+            if (i < rows.length - 1) body.getChildren().add(sep());
         }
         c.getChildren().add(body);
         return c;
     }
-    private static VBox row(String k,String v){
+
+    private static VBox row(String k, String v) {
         VBox r = new VBox(2);
-        r.setPadding(new Insets(8,16,8,16));
+        r.setPadding(new Insets(8, 16, 8, 16));
         Label a = new Label(k.toUpperCase());
         a.setStyle("-fx-font-size:10px;-fx-font-weight:700;-fx-text-fill:#818CF8;-fx-letter-spacing:0.6px;");
         Label b = new Label(v);
         b.setStyle("-fx-font-size:12.5px;-fx-text-fill:#E2E8F0;");
         b.setWrapText(true);
-        r.getChildren().addAll(a,b);
+        r.getChildren().addAll(a, b);
         return r;
     }
-    private static Separator sep(){ Separator s=new Separator(); s.setOpacity(0.45); return s; }
+
+    private static Separator sep() {
+        Separator s = new Separator();
+        s.setOpacity(0.45);
+        return s;
+    }
 }

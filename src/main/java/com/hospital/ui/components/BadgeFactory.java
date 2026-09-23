@@ -9,8 +9,8 @@ public class BadgeFactory {
         if (p == null) p = "";
         switch (p.toUpperCase()) {
             case "CRITICAL" -> l.getStyleClass().add("badge-critical");
-            case "HIGH" -> l.getStyleClass().add("badge-high");
-            case "MEDIUM" -> l.getStyleClass().add("badge-medium");
+            case "SERIOUS", "HIGH" -> l.getStyleClass().add("badge-high");
+            case "MODERATE", "MEDIUM" -> l.getStyleClass().add("badge-medium");
             case "LOW" -> l.getStyleClass().add("badge-low");
             default -> l.getStyleClass().add("badge-neutral");
         }

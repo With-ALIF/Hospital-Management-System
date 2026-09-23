@@ -6,14 +6,46 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class AppState {
-    // Legacy unified service (kept for backward compat)
     public final HospitalService service = new HospitalService();
-
-    // Day3/Day4/Day5 layered services — singletons backed by same JSON files
     public final PatientService patientService = new PatientService();
     public final DoctorService doctorService = new DoctorService();
     public final EmergencyService emergencyService = new EmergencyService(patientService, doctorService);
     public final AppointmentService appointmentService = new AppointmentService(patientService, doctorService);
+    public final BedService bedService = new BedService();
+    public final MedicalRecordService medicalRecordService = new MedicalRecordService(patientService,
+            com.hospital.repository.MedicalRecordRepository.DEFAULT_FILE);
+    public final PrescriptionService prescriptionService = new PrescriptionService();
+    public final PharmacyService pharmacyService = new PharmacyService();
+    public final LabService labService = new LabService(patientService,
+            com.hospital.repository.LabTestRepository.DEFAULT_FILE);
+    public final BillingService billingService = new BillingService();
+    public final AdmissionService admissionService = new AdmissionService(bedService, patientService,
+            com.hospital.repository.AdmissionRepository.DEFAULT_FILE,
+            com.hospital.repository.DischargeRepository.DEFAULT_FILE);
+    public final NotificationService notificationService = new NotificationService();
+    public final AuditLogService auditLogService = new AuditLogService();
+    public final StaffService staffService = new StaffService();
+    public final AuditLogService authAudit = auditLogService;
+    public final AuthenticationService authenticationService =
+            new AuthenticationService(com.hospital.repository.UserAccountRepository.DEFAULT_FILE,
+                    auditLogService);
+    public final PermissionService permissionService = PermissionService.getInstance();
+    public final SessionManager sessionManager = SessionManager.getInstance();
+    public final RiskScoreService riskScoreService = new RiskScoreService();
+    public final WorkloadService workloadService = new WorkloadService();
+    public final ReportService reportService = new ReportService();
+
+    public final BloodBankService bloodBankService = new BloodBankService();
+    public final AmbulanceService ambulanceService = new AmbulanceService();
+    public final OperationService operationService = new OperationService();
+    public final VitalMonitoringService vitalMonitoringService = new VitalMonitoringService();
+    public final FollowUpService followUpService = new FollowUpService();
+    public final EquipmentService equipmentService = new EquipmentService();
+    public final StaffShiftService staffShiftService = new StaffShiftService();
+    public final BackupService backupService = new BackupService();
+    public final AdvancedSearchService advancedSearchService = new AdvancedSearchService();
+    public final AdvancedReportService advancedReportService = new AdvancedReportService();
+    public final EventBus eventBus = EventBus.getInstance();
 
     public final ObservableList<Doctor> doctors = FXCollections.observableArrayList();
     public final ObservableList<Patient> patients = FXCollections.observableArrayList();
@@ -31,18 +63,10 @@ public class AppState {
     }
 
     private void loadDataFromService() {
-        System.out.println("Loading hospital data...");
-        // legacy HospitalService is source of truth for patients/doctors/appointments UI lists
-        // layered services read same files, so keep them in sync
         doctors.addAll(service.getDoctors());
         patients.addAll(service.getPatients());
         appointments.addAll(service.getAppointments());
         try { emergencyCases.addAll(emergencyService.getAllCases()); } catch (Exception ignored) {}
-        System.out.println("Patients loaded: " + patients.size());
-        System.out.println("Doctors loaded: " + doctors.size());
-        System.out.println("Appointments loaded: " + appointments.size());
-        System.out.println("Emergency cases loaded: " + emergencyCases.size());
-        System.out.println("Hospital data synchronized.");
     }
 
     public void refreshFromService() {
@@ -58,9 +82,9 @@ public class AppState {
         try { emergencyCases.setAll(emergencyService.getAllCases()); } catch (Exception ignored) {}
         notifyChange();
     }
+
     public void refreshAppointments() {
         try { appointments.setAll(appointmentService.getAllAppointments()); } catch (Exception ignored) {}
-        // also keep legacy service in sync for any old views
         service.loadAllData();
         notifyChange();
     }

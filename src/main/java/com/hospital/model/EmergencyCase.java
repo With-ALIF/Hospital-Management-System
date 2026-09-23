@@ -1,39 +1,33 @@
 package com.hospital.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.hospital.enums.EmergencyCaseStatus;
+import com.hospital.enums.EmergencyLevel;
 
 import java.time.LocalDateTime;
 
-/**
- * An emergency case reported for an already registered patient.
- *
- * The case keeps the patient id instead of the whole patient object, so the
- * JSON file stays readable (see data/emergency_cases.json) and a case can be
- * loaded independently from the patient file.
- *
- * Day 4 adds {@code arrivalTime} (FIFO order inside one priority level) and
- * {@code assignedDoctorId} (the doctor treating the case). Both fields are
- * optional when loading, so older JSON files without them still work.
- */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EmergencyCase {
     private String id;
     private String patientId;
-    private EmergencyPriority priority;
+    private EmergencyLevel priority;
     private String description;
     private EmergencyCaseStatus status;
     private LocalDateTime arrivalTime;
     private String assignedDoctorId;
+    private String assignedNurseId;
+    private VitalSigns vitals;
+    private int priorityScore;
 
     public EmergencyCase() {
     }
 
-    public EmergencyCase(String id, String patientId, EmergencyPriority priority,
+    public EmergencyCase(String id, String patientId, EmergencyLevel priority,
                          String description, EmergencyCaseStatus status) {
         this(id, patientId, priority, description, status, LocalDateTime.now(), null);
     }
 
-    public EmergencyCase(String id, String patientId, EmergencyPriority priority,
+    public EmergencyCase(String id, String patientId, EmergencyLevel priority,
                          String description, EmergencyCaseStatus status,
                          LocalDateTime arrivalTime, String assignedDoctorId) {
         this.id = id;
@@ -45,69 +39,30 @@ public class EmergencyCase {
         this.assignedDoctorId = assignedDoctorId;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(String patientId) {
-        this.patientId = patientId;
-    }
-
-    public EmergencyPriority getPriority() {
-        return priority;
-    }
-
-    public void setPriority(EmergencyPriority priority) {
-        this.priority = priority;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public EmergencyCaseStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(EmergencyCaseStatus status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getArrivalTime() {
-        return arrivalTime;
-    }
-
-    public void setArrivalTime(LocalDateTime arrivalTime) {
-        this.arrivalTime = arrivalTime;
-    }
-
-    public String getAssignedDoctorId() {
-        return assignedDoctorId;
-    }
-
-    public void setAssignedDoctorId(String assignedDoctorId) {
-        this.assignedDoctorId = assignedDoctorId;
-    }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
+    public String getPatientId() { return patientId; }
+    public void setPatientId(String patientId) { this.patientId = patientId; }
+    public EmergencyLevel getPriority() { return priority; }
+    public void setPriority(EmergencyLevel priority) { this.priority = priority; }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+    public EmergencyCaseStatus getStatus() { return status; }
+    public void setStatus(EmergencyCaseStatus status) { this.status = status; }
+    public LocalDateTime getArrivalTime() { return arrivalTime; }
+    public void setArrivalTime(LocalDateTime arrivalTime) { this.arrivalTime = arrivalTime; }
+    public String getAssignedDoctorId() { return assignedDoctorId; }
+    public void setAssignedDoctorId(String assignedDoctorId) { this.assignedDoctorId = assignedDoctorId; }
+    public String getAssignedNurseId() { return assignedNurseId; }
+    public void setAssignedNurseId(String assignedNurseId) { this.assignedNurseId = assignedNurseId; }
+    public VitalSigns getVitals() { return vitals; }
+    public void setVitals(VitalSigns vitals) { this.vitals = vitals; }
+    public int getPriorityScore() { return priorityScore; }
+    public void setPriorityScore(int priorityScore) { this.priorityScore = priorityScore; }
 
     public void displayInfo() {
-        System.out.println("Emergency Case: " + id);
-        System.out.println("Patient ID: " + patientId);
-        System.out.println("Priority: " + priority);
-        System.out.println("Description: " + description);
-        System.out.println("Status: " + status);
-        System.out.println("Arrival Time: " + (arrivalTime != null ? arrivalTime : "-"));
-        System.out.println("Assigned Doctor: " + (assignedDoctorId != null ? assignedDoctorId : "-"));
+        System.out.println("Emergency " + id + " | Patient: " + patientId
+                + " | Level: " + priority + " | Score: " + priorityScore
+                + " | Status: " + status + " | " + description);
     }
 }

@@ -5,10 +5,6 @@ import com.hospital.model.Doctor;
 
 import java.util.List;
 
-/**
- * Stores doctors (including their duty slots) in {@code data/doctors.json}.
- * Every modification writes the file again, so no explicit save call is needed.
- */
 public class DoctorRepository extends AbstractJsonRepository<Doctor> {
 
     public static final String DEFAULT_FILE = "data/doctors.json";
@@ -17,10 +13,8 @@ public class DoctorRepository extends AbstractJsonRepository<Doctor> {
         this(DEFAULT_FILE);
     }
 
-    /** Used by the tests so that they can work in a temporary directory. */
     public DoctorRepository(String filePath) {
-        super(filePath, new TypeReference<List<Doctor>>() {
-        }, "Doctor");
+        super(filePath, new TypeReference<List<Doctor>>() {}, "Doctor");
     }
 
     @Override
@@ -29,6 +23,6 @@ public class DoctorRepository extends AbstractJsonRepository<Doctor> {
     }
 
     public String nextDoctorId() {
-        return nextId("D-", 1001);
+        return nextId("DOC-", 1);
     }
 }

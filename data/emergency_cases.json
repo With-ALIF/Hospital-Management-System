@@ -1,9 +1,3 @@
-[ {
-  "id" : "E-1001",
-  "patientId" : "P-1001",
-  "priority" : "HIGH",
-  "description" : "Chest pain",
-  "status" : "IN_TREATMENT",
-  "arrivalTime" : null,
-  "assignedDoctorId" : "D-1001"
-} ]
+[ {"id":"EMG-0001","patientId":"PAT-0002","priority":"CRITICAL","description":"Chest pain radiating to arm","status":"WAITING","arrivalTime":"2026-09-23T08:15:00","assignedDoctorId":null},
+{"id":"EMG-0002","patientId":"PAT-0004","priority":"SERIOUS","description":"Road accident injury","status":"WAITING","arrivalTime":"2026-09-23T08:40:00","assignedDoctorId":null},
+{"id":"EMG-0003","patientId":"PAT-0007","priority":"LOW","description":"Minor cut on hand","status":"IN_TREATMENT","arrivalTime":"2026-09-23T07:50:00","assignedDoctorId":"DOC-0005"} ]

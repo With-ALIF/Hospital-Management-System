@@ -6,10 +6,6 @@ import com.hospital.model.Appointment;
 import java.time.LocalDate;
 import java.util.List;
 
-/**
- * Stores appointments in {@code data/appointments.json}.
- * Every modification writes the file again (auto sync).
- */
 public class AppointmentRepository extends AbstractJsonRepository<Appointment> {
 
     public static final String DEFAULT_FILE = "data/appointments.json";
@@ -28,7 +24,7 @@ public class AppointmentRepository extends AbstractJsonRepository<Appointment> {
     }
 
     public String nextAppointmentId() {
-        return nextId("A-", 1001);
+        return nextId("APT-", 1);
     }
 
     public List<Appointment> findByPatientId(String patientId) {

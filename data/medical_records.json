@@ -1,0 +1,5 @@
+[ {"id":"MRC-0001","patientId":"PAT-0001","doctorId":"DOC-0001","date":"2026-09-21","symptoms":"Chest discomfort","diagnosis":"Stable angina","treatment":"Aspirin + rest","notes":"Follow up in 2 weeks","vitals":null},
+{"id":"MRC-0002","patientId":"PAT-0002","doctorId":"DOC-0001","date":"2026-09-23","symptoms":"Chest pain, sweating","diagnosis":"Suspected MI","treatment":"Admitted to CCU","notes":"ECG in progress","vitals":null},
+{"id":"MRC-0003","patientId":"PAT-0004","doctorId":"DOC-0003","date":"2026-09-23","symptoms":"Knee pain after fall","diagnosis":"Ligament sprain","treatment":"RICE + analgesics","notes":"","vitals":null},
+{"id":"MRC-0004","patientId":"PAT-0006","doctorId":"DOC-0001","date":"2026-09-20","symptoms":"High BP","diagnosis":"Hypertension stage 1","treatment":"Amlodipine 5mg","notes":"Home BP monitoring","vitals":null},
+{"id":"MRC-0005","patientId":"PAT-0008","doctorId":"DOC-0002","date":"2026-09-22","symptoms":"Memory lapses","diagnosis":"Mild cognitive impairment","treatment":"Observation + imaging","notes":"Ultrasound done","vitals":null} ]

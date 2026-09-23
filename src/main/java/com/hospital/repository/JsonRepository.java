@@ -5,12 +5,6 @@ import com.hospital.storage.JsonStorage;
 
 import java.util.List;
 
-/**
- * Thin generic JSON persistence for a list of entities.
- * The real file handling lives in {@link JsonStorage}, so this class and the
- * Repository classes (PatientRepository, DoctorRepository, ...) share exactly
- * the same loading / saving behaviour.
- */
 public class JsonRepository<T> {
 
     private final JsonStorage storage;

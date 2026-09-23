@@ -1,34 +1,10 @@
-[ {
-  "id" : "A-1001",
-  "patient" : {
-    "type" : "PATIENT",
-    "id" : "P-1001",
-    "name" : "Rahim",
-    "phone" : "01700000000",
-    "gender" : "Male",
-    "role" : "PATIENT",
-    "bloodGroup" : "O+",
-    "emergencyContact" : "01900000000"
-  },
-  "doctor" : {
-    "type" : "DOCTOR",
-    "id" : "D-1001",
-    "name" : "Dr. Karim",
-    "phone" : "01700000001",
-    "gender" : "Male",
-    "role" : "DOCTOR",
-    "specialization" : "Cardiology",
-    "available" : true,
-    "dutySlots" : [ {
-      "startTime" : "09:00",
-      "endTime" : "13:00"
-    }, {
-      "startTime" : "15:00",
-      "endTime" : "18:00"
-    } ]
-  },
-  "date" : "2026-09-19",
-  "time" : "10:30",
-  "reason" : "Regular checkup",
-  "status" : "SCHEDULED"
-} ]
+[ {"id":"APT-0001","patientId":"PAT-0001","doctorId":"DOC-0001","patient":{"type":"PATIENT","id":"PAT-0001","name":"Rahim Uddin","phone":"01711110001","gender":"Male","role":"PATIENT","bloodGroup":"O+","emergencyContact":"01911110001","age":45},"doctor":{"type":"DOCTOR","id":"DOC-0001","name":"Dr. Karim","phone":"01722220001","gender":"Male","role":"DOCTOR","specialization":"Cardiology","available":true,"dutySlots":[{"startTime":"09:00","endTime":"13:00"},{"startTime":"15:00","endTime":"18:00"}]},"date":"2026-09-23","time":"10:00","reason":"Follow-up","status":"SCHEDULED"},
+{"id":"APT-0002","patientId":"PAT-0002","doctorId":"DOC-0001","patient":{"type":"PATIENT","id":"PAT-0002","name":"Karim Hossain","phone":"01711110002","gender":"Male","role":"PATIENT","bloodGroup":"A+","emergencyContact":"01911110002","age":67},"doctor":{"type":"DOCTOR","id":"DOC-0001","name":"Dr. Karim","phone":"01722220001","gender":"Male","role":"DOCTOR","specialization":"Cardiology","available":true,"dutySlots":[{"startTime":"09:00","endTime":"13:00"},{"startTime":"15:00","endTime":"18:00"}]},"date":"2026-09-23","time":"11:00","reason":"ECG review","status":"CONFIRMED"},
+{"id":"APT-0003","patientId":"PAT-0003","doctorId":"DOC-0002","patient":{"type":"PATIENT","id":"PAT-0003","name":"Hasan Ali","phone":"01711110003","gender":"Male","role":"PATIENT","bloodGroup":"B+","emergencyContact":"01911110003","age":32},"doctor":{"type":"DOCTOR","id":"DOC-0002","name":"Dr. Nasrin","phone":"01722220002","gender":"Female","role":"DOCTOR","specialization":"Neurology","available":true,"dutySlots":[{"startTime":"10:00","endTime":"14:00"}]},"date":"2026-09-23","time":"10:30","reason":"Migraine","status":"SCHEDULED"},
+{"id":"APT-0004","patientId":"PAT-0004","doctorId":"DOC-0003","patient":{"type":"PATIENT","id":"PAT-0004","name":"Sakib Ahmed","phone":"01711110004","gender":"Male","role":"PATIENT","bloodGroup":"O-","emergencyContact":"01911110004","age":28},"doctor":{"type":"DOCTOR","id":"DOC-0003","name":"Dr. Mahmud","phone":"01722220003","gender":"Male","role":"DOCTOR","specialization":"Orthopedics","available":true,"dutySlots":[{"startTime":"08:00","endTime":"12:00"},{"startTime":"14:00","endTime":"17:00"}]},"date":"2026-09-24","time":"09:00","reason":"Knee pain","status":"SCHEDULED"},
+{"id":"APT-0005","patientId":"PAT-0005","doctorId":"DOC-0004","patient":{"type":"PATIENT","id":"PAT-0005","name":"Nayeem Islam","phone":"01711110005","gender":"Male","role":"PATIENT","bloodGroup":"AB+","emergencyContact":"01911110005","age":54},"doctor":{"type":"DOCTOR","id":"DOC-0004","name":"Dr. Farhana","phone":"01722220004","gender":"Female","role":"DOCTOR","specialization":"Pediatrics","available":true,"dutySlots":[{"startTime":"09:00","endTime":"13:00"}]},"date":"2026-09-24","time":"11:00","reason":"Child checkup","status":"CONFIRMED"},
+{"id":"APT-0006","patientId":"PAT-0006","doctorId":"DOC-0001","patient":{"type":"PATIENT","id":"PAT-0006","name":"Fatema Begum","phone":"01711110006","gender":"Female","role":"PATIENT","bloodGroup":"A-","emergencyContact":"01911110006","age":39},"doctor":{"type":"DOCTOR","id":"DOC-0001","name":"Dr. Karim","phone":"01722220001","gender":"Male","role":"DOCTOR","specialization":"Cardiology","available":true,"dutySlots":[{"startTime":"09:00","endTime":"13:00"},{"startTime":"15:00","endTime":"18:00"}]},"date":"2026-09-25","time":"15:30","reason":"BP monitoring","status":"SCHEDULED"},
+{"id":"APT-0007","patientId":"PAT-0007","doctorId":"DOC-0003","patient":{"type":"PATIENT","id":"PAT-0007","name":"Ayesha Rahman","phone":"01711110007","gender":"Female","role":"PATIENT","bloodGroup":"B-","emergencyContact":"01911110007","age":22},"doctor":{"type":"DOCTOR","id":"DOC-0003","name":"Dr. Mahmud","phone":"01722220003","gender":"Male","role":"DOCTOR","specialization":"Orthopedics","available":true,"dutySlots":[{"startTime":"08:00","endTime":"12:00"},{"startTime":"14:00","endTime":"17:00"}]},"date":"2026-09-25","time":"14:30","reason":"Ankle sprain","status":"SCHEDULED"},
+{"id":"APT-0008","patientId":"PAT-0008","doctorId":"DOC-0002","patient":{"type":"PATIENT","id":"PAT-0008","name":"Jahangir Khan","phone":"01711110008","gender":"Male","role":"PATIENT","bloodGroup":"O+","emergencyContact":"01911110008","age":71},"doctor":{"type":"DOCTOR","id":"DOC-0002","name":"Dr. Nasrin","phone":"01722220002","gender":"Female","role":"DOCTOR","specialization":"Neurology","available":true,"dutySlots":[{"startTime":"10:00","endTime":"14:00"}]},"date":"2026-09-26","time":"12:00","reason":"Memory assessment","status":"SCHEDULED"},
+{"id":"APT-0009","patientId":"PAT-0009","doctorId":"DOC-0004","patient":{"type":"PATIENT","id":"PAT-0009","name":"Sumaiya Akter","phone":"01711110009","gender":"Female","role":"PATIENT","bloodGroup":"A+","emergencyContact":"01911110009","age":35},"doctor":{"type":"DOCTOR","id":"DOC-0004","name":"Dr. Farhana","phone":"01722220004","gender":"Female","role":"DOCTOR","specialization":"Pediatrics","available":true,"dutySlots":[{"startTime":"09:00","endTime":"13:00"}]},"date":"2026-09-26","time":"10:00","reason":"Vaccination","status":"COMPLETED"},
+{"id":"APT-0010","patientId":"PAT-0010","doctorId":"DOC-0005","patient":{"type":"PATIENT","id":"PAT-0010","name":"Rafiqul Islam","phone":"01711110010","gender":"Male","role":"PATIENT","bloodGroup":"B+","emergencyContact":"01911110010","age":58},"doctor":{"type":"DOCTOR","id":"DOC-0005","name":"Dr. Rashid","phone":"01722220005","gender":"Male","role":"DOCTOR","specialization":"Emergency Medicine","available":true,"dutySlots":[{"startTime":"18:00","endTime":"23:59"}]},"date":"2026-09-22","time":"22:00","reason":"Chest tightness","status":"CANCELLED"} ]

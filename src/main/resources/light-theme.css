@@ -1,60 +1,48 @@
-/* ==========================================================
-   Hospital Management System — Dark Indigo Professional Theme
-   Palette: Primary #6366F1 (Indigo) | BG #0F0F1E | Surface #1E1B4B / #1E293B
-   Text #F1F5F9 | Secondary #94A3B8 | Border #334155 / #4338CA
-   Success #22C55E | Warning #F59E0B | Danger #EF4444
-   Font: Inter / Segoe UI | Spacing 8/12/16/24/32
-   ========================================================== */
-
 .root {
     -fx-font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-    -fx-background-color: #0F0F1E;
-    -fx-text-fill: #F1F5F9;
+    -fx-background-color: #F8FAFC;
+    -fx-text-fill: #0F172A;
 }
-
-/* ---------- Layout shells ---------- */
 .sidebar {
-    -fx-background-color: #1E1B4B;
-    -fx-border-color: #312E81;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E2E8F0;
     -fx-border-width: 0 1 0 0;
 }
 .top-header {
-    -fx-background-color: #1E1B4B;
-    -fx-border-color: #312E81;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E2E8F0;
     -fx-border-width: 0 0 1 0;
     -fx-padding: 12 24 12 24;
 }
 .main-content {
-    -fx-background-color: #0F0F1E;
+    -fx-background-color: #F8FAFC;
     -fx-padding: 24;
 }
-
-/* ---------- Sidebar ---------- */
 .sidebar-logo {
     -fx-padding: 20 16 16 16;
-    -fx-border-color: #312E81;
+    -fx-border-color: #E2E8F0;
     -fx-border-width: 0 0 1 0;
 }
 .sidebar-logo-title {
     -fx-font-size: 13px;
     -fx-font-weight: 700;
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #0F172A;
     -fx-letter-spacing: 0.3px;
 }
 .sidebar-logo-sub {
     -fx-font-size: 11px;
-    -fx-text-fill: #A5B4FC;
+    -fx-text-fill: #6366F1;
 }
 .sidebar-section {
     -fx-font-size: 10.5px;
     -fx-font-weight: 700;
-    -fx-text-fill: #818CF8;
+    -fx-text-fill: #6366F1;
     -fx-letter-spacing: 0.8px;
     -fx-padding: 16 16 6 16;
 }
 .sidebar-item {
     -fx-background-color: transparent;
-    -fx-text-fill: #A5B4FC;
+    -fx-text-fill: #475569;
     -fx-font-size: 13px;
     -fx-font-weight: 500;
     -fx-padding: 8 12 8 16;
@@ -65,19 +53,19 @@
     -fx-graphic-text-gap: 10;
 }
 .sidebar-item:hover {
-    -fx-background-color: #312E81;
-    -fx-text-fill: #E0E7FF;
+    -fx-background-color: #EEF2FF;
+    -fx-text-fill: #4338CA;
 }
 .sidebar-item-active {
-    -fx-background-color: #4338CA;
+    -fx-background-color: #6366F1;
     -fx-text-fill: #FFFFFF;
     -fx-font-weight: 600;
-    -fx-border-color: transparent transparent transparent #818CF8;
+    -fx-border-color: transparent transparent transparent #A5B4FC;
     -fx-border-width: 0 0 0 3;
 }
 .sidebar-status {
-    -fx-background-color: #17153A;
-    -fx-border-color: #312E81;
+    -fx-background-color: #F1F5F9;
+    -fx-border-color: #E2E8F0;
     -fx-border-width: 1 0 0 0;
     -fx-padding: 12 16;
 }
@@ -89,25 +77,22 @@
     -fx-max-width: 8;
     -fx-max-height: 8;
 }
-
-/* ---------- Header ---------- */
 .header-search {
-    -fx-background-color: #1E293B;
-    -fx-border-color: #334155;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #CBD5E1;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
     -fx-padding: 7 12;
     -fx-font-size: 13px;
-    -fx-prompt-text-fill: #64748B;
-    -fx-text-fill: #F1F5F9;
+    -fx-prompt-text-fill: #94A3B8;
+    -fx-text-fill: #0F172A;
 }
 .header-search:focused {
-    -fx-background-color: #1E1B4B;
     -fx-border-color: #6366F1;
 }
 .header-icon {
     -fx-font-size: 16px;
-    -fx-text-fill: #A5B4FC;
+    -fx-text-fill: #6366F1;
     -fx-cursor: hand;
 }
 .header-avatar {
@@ -122,254 +107,3 @@
     -fx-font-weight: 700;
     -fx-font-size: 12px;
 }
-
-/* ---------- Cards ---------- */
-.card {
-    -fx-background-color: #1E293B;
-    -fx-border-color: #334155;
-    -fx-border-width: 1;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
-}
-.card-elevated {
-    -fx-background-color: #1E293B;
-    -fx-border-color: #334155;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
-}
-.kpi-card {
-    -fx-background-color: #1E293B;
-    -fx-border-color: #334155;
-    -fx-border-width: 1;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
-    -fx-padding: 16;
-}
-.kpi-label {
-    -fx-font-size: 11px;
-    -fx-font-weight: 600;
-    -fx-text-fill: #94A3B8;
-    -fx-letter-spacing: 0.5px;
-}
-.kpi-value {
-    -fx-font-size: 26px;
-    -fx-font-weight: 700;
-    -fx-text-fill: #F1F5F9;
-}
-.kpi-sub {
-    -fx-font-size: 11.5px;
-    -fx-text-fill: #94A3B8;
-}
-.kpi-sub-success { -fx-text-fill: #4ADE80; }
-.kpi-sub-warning { -fx-text-fill: #FBBF24; }
-.kpi-sub-danger  { -fx-text-fill: #F87171; }
-
-/* ---------- Section headers ---------- */
-.page-title {
-    -fx-font-size: 20px;
-    -fx-font-weight: 700;
-    -fx-text-fill: #F1F5F9;
-}
-.page-subtitle {
-    -fx-font-size: 13px;
-    -fx-text-fill: #94A3B8;
-}
-.section-title {
-    -fx-font-size: 13px;
-    -fx-font-weight: 700;
-    -fx-text-fill: #E2E8F0;
-}
-.section-subtitle {
-    -fx-font-size: 12px;
-    -fx-text-fill: #94A3B8;
-}
-
-/* ---------- Badges — indigo dark adapted ---------- */
-.badge {
-    -fx-font-size: 10.5px;
-    -fx-font-weight: 700;
-    -fx-padding: 3 8;
-    -fx-background-radius: 4;
-    -fx-border-radius: 4;
-    -fx-letter-spacing: 0.3px;
-}
-.badge-critical {
-    -fx-background-color: rgba(239,68,68,0.18);
-    -fx-text-fill: #FCA5A5;
-    -fx-border-color: rgba(239,68,68,0.35);
-}
-.badge-high {
-    -fx-background-color: rgba(245,158,11,0.18);
-    -fx-text-fill: #FCD34D;
-    -fx-border-color: rgba(245,158,11,0.35);
-}
-.badge-medium {
-    -fx-background-color: rgba(99,102,241,0.20);
-    -fx-text-fill: #A5B4FC;
-    -fx-border-color: rgba(99,102,241,0.40);
-}
-.badge-low {
-    -fx-background-color: rgba(148,163,184,0.15);
-    -fx-text-fill: #CBD5E1;
-    -fx-border-color: rgba(148,163,184,0.30);
-}
-.badge-success {
-    -fx-background-color: rgba(34,197,94,0.18);
-    -fx-text-fill: #86EFAC;
-    -fx-border-color: rgba(34,197,94,0.35);
-}
-.badge-warning {
-    -fx-background-color: rgba(245,158,11,0.18);
-    -fx-text-fill: #FCD34D;
-    -fx-border-color: rgba(245,158,11,0.35);
-}
-.badge-danger {
-    -fx-background-color: rgba(239,68,68,0.18);
-    -fx-text-fill: #FCA5A5;
-    -fx-border-color: rgba(239,68,68,0.35);
-}
-.badge-neutral {
-    -fx-background-color: rgba(51,65,85,0.80);
-    -fx-text-fill: #CBD5E1;
-    -fx-border-color: #475569;
-}
-.badge-info {
-    -fx-background-color: rgba(99,102,241,0.20);
-    -fx-text-fill: #A5B4FC;
-    -fx-border-color: rgba(99,102,241,0.40);
-}
-.status-dot-available { -fx-background-color: #22C55E; -fx-background-radius: 4; -fx-min-width:7; -fx-min-height:7; -fx-max-width:7; -fx-max-height:7; }
-.status-dot-busy { -fx-background-color: #F59E0B; -fx-background-radius: 4; -fx-min-width:7; -fx-min-height:7; -fx-max-width:7; -fx-max-height:7; }
-.status-dot-offline { -fx-background-color: #64748B; -fx-background-radius: 4; -fx-min-width:7; -fx-min-height:7; -fx-max-width:7; -fx-max-height:7; }
-
-/* ---------- Buttons — indigo primary ---------- */
-.button {
-    -fx-font-size: 12.5px;
-    -fx-font-weight: 600;
-    -fx-background-radius: 6;
-    -fx-border-radius: 6;
-    -fx-padding: 7 14;
-    -fx-cursor: hand;
-}
-.btn-primary {
-    -fx-background-color: #6366F1;
-    -fx-text-fill: #FFFFFF;
-    -fx-border-color: transparent;
-}
-.btn-primary:hover { -fx-background-color: #4F46E5; }
-.btn-primary:pressed { -fx-background-color: #4338CA; }
-
-.btn-secondary {
-    -fx-background-color: #1E293B;
-    -fx-text-fill: #E2E8F0;
-    -fx-border-color: #334155;
-}
-.btn-secondary:hover { -fx-background-color: #334155; -fx-border-color: #475569; -fx-text-fill: #F1F5F9; }
-
-.btn-ghost {
-    -fx-background-color: transparent;
-    -fx-text-fill: #94A3B8;
-    -fx-border-color: transparent;
-}
-.btn-ghost:hover { -fx-background-color: #334155; -fx-text-fill: #E2E8F0; }
-
-.btn-danger {
-    -fx-background-color: transparent;
-    -fx-text-fill: #FCA5A5;
-    -fx-border-color: #7F1D1D;
-}
-.btn-danger:hover { -fx-background-color: rgba(239,68,68,0.15); -fx-text-fill: #F87171; }
-.btn-small { -fx-font-size: 11px; -fx-padding: 4 10; }
-
-/* ---------- Inputs ---------- */
-.text-field, .combo-box, .date-picker {
-    -fx-background-color: #0F172A;
-    -fx-border-color: #334155;
-    -fx-border-radius: 6;
-    -fx-background-radius: 6;
-    -fx-padding: 7 10;
-    -fx-font-size: 12.5px;
-    -fx-text-fill: #F1F5F9;
-    -fx-prompt-text-fill: #64748B;
-}
-.text-field:focused, .combo-box:focused, .date-picker:focused {
-    -fx-border-color: #6366F1;
-}
-.combo-box .list-cell { -fx-text-fill: #F1F5F9; -fx-background-color: transparent; }
-.combo-box-popup .list-view { -fx-background-color: #1E293B; -fx-border-color: #334155; }
-.combo-box-popup .list-view .list-cell { -fx-background-color: #1E293B; -fx-text-fill: #E2E8F0; }
-.combo-box-popup .list-view .list-cell:hover { -fx-background-color: #4338CA; -fx-text-fill: #FFFFFF; }
-
-/* ---------- Table — dark indigo ---------- */
-.table-view {
-    -fx-background-color: #1E293B;
-    -fx-border-color: #334155;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
-}
-.table-view .column-header-background {
-    -fx-background-color: #1E1B4B;
-    -fx-border-color: #334155;
-    -fx-border-width: 0 0 1 0;
-}
-.table-view .column-header {
-    -fx-background-color: #1E1B4B;
-    -fx-border-color: transparent #334155 transparent transparent;
-    -fx-padding: 8 10;
-}
-.table-view .column-header .label {
-    -fx-text-fill: #A5B4FC;
-    -fx-font-size: 10.5px;
-    -fx-font-weight: 700;
-    -fx-letter-spacing: 0.5px;
-}
-.table-view .table-cell {
-    -fx-text-fill: #E2E8F0;
-    -fx-font-size: 12.5px;
-    -fx-padding: 10 10;
-    -fx-border-color: transparent;
-}
-.table-row-cell {
-    -fx-background-color: #1E293B;
-    -fx-border-color: #334155;
-    -fx-border-width: 0 0 1 0;
-}
-.table-row-cell:odd { -fx-background-color: #1C2540; }
-.table-row-cell:selected {
-    -fx-background-color: #312E81;
-}
-.table-row-cell:hover { -fx-background-color: #334155; }
-.table-view .placeholder .label { -fx-text-fill: #64748B; }
-
-/* ---------- Dialog / Modal ---------- */
-.dialog-pane {
-    -fx-background-color: #1E293B;
-    -fx-border-color: #334155;
-}
-.dialog-pane:header .header-panel { -fx-background-color: #1E1B4B; }
-.dialog-pane:header .header-panel .label { -fx-text-fill: #F1F5F9; }
-.dialog-pane .content.label { -fx-text-fill: #CBD5E1; }
-.dialog-pane > .button-bar > .container { -fx-background-color: #1E1B4B; }
-
-/* ---------- Scroll ---------- */
-.scroll-pane { -fx-background-color: transparent; -fx-background: transparent; }
-.scroll-pane > .viewport { -fx-background-color: transparent; }
-.scroll-bar { -fx-background-color: #0F0F1E; }
-.scroll-bar .thumb { -fx-background-color: #334155; -fx-background-radius: 4; }
-.scroll-bar .thumb:hover { -fx-background-color: #475569; }
-.scroll-bar .track { -fx-background-color: #0F0F1E; }
-
-/* ---------- Misc ---------- */
-.separator .line { -fx-background-color: #334155; -fx-border-color: transparent; }
-.label { -fx-text-fill: #CBD5E1; }
-.empty-state-title { -fx-font-size: 13px; -fx-font-weight: 600; -fx-text-fill: #E2E8F0; }
-.empty-state-sub { -fx-font-size: 12px; -fx-text-fill: #94A3B8; }
-
-/* TabPane — dark indigo */
-.tab-pane .tab-header-area { -fx-background-color: #1E1B4B; }
-.tab-pane .tab-header-background { -fx-background-color: #1E1B4B; }
-.tab-pane .tab { -fx-background-color: #1E293B; -fx-background-radius: 6 6 0 0; }
-.tab-pane .tab:selected { -fx-background-color: #312E81; -fx-border-color: #6366F1; -fx-border-width: 0 0 2 0; }
-.tab-pane .tab .tab-label { -fx-text-fill: #94A3B8; }
-.tab-pane .tab:selected .tab-label { -fx-text-fill: #FFFFFF; }
-.tab-pane .tab-content-area { -fx-background-color: #0F0F1E; }

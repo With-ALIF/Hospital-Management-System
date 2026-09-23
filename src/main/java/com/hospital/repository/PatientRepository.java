@@ -5,10 +5,6 @@ import com.hospital.model.Patient;
 
 import java.util.List;
 
-/**
- * Stores patients in {@code data/patients.json}.
- * Every modification writes the file again, so no explicit save call is needed.
- */
 public class PatientRepository extends AbstractJsonRepository<Patient> {
 
     public static final String DEFAULT_FILE = "data/patients.json";
@@ -17,10 +13,8 @@ public class PatientRepository extends AbstractJsonRepository<Patient> {
         this(DEFAULT_FILE);
     }
 
-    /** Used by the tests so that they can work in a temporary directory. */
     public PatientRepository(String filePath) {
-        super(filePath, new TypeReference<List<Patient>>() {
-        }, "Patient");
+        super(filePath, new TypeReference<List<Patient>>() {}, "Patient");
     }
 
     @Override
@@ -29,7 +23,7 @@ public class PatientRepository extends AbstractJsonRepository<Patient> {
     }
 
     public String nextPatientId() {
-        return nextId("P-", 1001);
+        return nextId("PAT-", 1);
     }
 
     public List<Patient> findByBloodGroup(String bloodGroup) {

@@ -1,0 +1,12 @@
+[ {"id":"SHF-0001","staffId":"STF-0001","staffName":"Rina Akter","date":"2026-09-23","shiftType":"MORNING","startTime":"08:00","endTime":"16:00","status":"ACTIVE","department":"General Ward"},
+{"id":"SHF-0002","staffId":"STF-0002","staffName":"Shirin Sultana","date":"2026-09-23","shiftType":"NIGHT","startTime":"20:00","endTime":"08:00","status":"ASSIGNED","department":"ICU"},
+{"id":"SHF-0003","staffId":"STF-0003","staffName":"Momena Begum","date":"2026-09-23","shiftType":"EVENING","startTime":"16:00","endTime":"00:00","status":"ASSIGNED","department":"CCU"},
+{"id":"SHF-0004","staffId":"STF-0004","staffName":"Tanvir Alam","date":"2026-09-23","shiftType":"MORNING","startTime":"08:00","endTime":"16:00","status":"ACTIVE","department":"Reception"},
+{"id":"SHF-0005","staffId":"STF-0005","staffName":"Mitu Das","date":"2026-09-23","shiftType":"EVENING","startTime":"16:00","endTime":"00:00","status":"ASSIGNED","department":"Reception"},
+{"id":"SHF-0006","staffId":"STF-0006","staffName":"Habibur Rahman","date":"2026-09-23","shiftType":"MORNING","startTime":"08:00","endTime":"16:00","status":"ACTIVE","department":"Pharmacy"},
+{"id":"SHF-0007","staffId":"STF-0007","staffName":"Joya Sarkar","date":"2026-09-23","shiftType":"NIGHT","startTime":"20:00","endTime":"08:00","status":"ASSIGNED","department":"Pharmacy"},
+{"id":"SHF-0008","staffId":"STF-0008","staffName":"Arif Chowdhury","date":"2026-09-23","shiftType":"MORNING","startTime":"08:00","endTime":"16:00","status":"ACTIVE","department":"Lab"},
+{"id":"SHF-0009","staffId":"STF-0009","staffName":"Sadia Islam","date":"2026-09-24","shiftType":"NIGHT","startTime":"20:00","endTime":"08:00","status":"ASSIGNED","department":"Lab"},
+{"id":"SHF-0010","staffId":"STF-0010","staffName":"System Administrator","date":"2026-09-23","shiftType":"MORNING","startTime":"08:00","endTime":"16:00","status":"ACTIVE","department":"Admin"},
+{"id":"SHF-0011","staffId":"STF-0001","staffName":"Rina Akter","date":"2026-09-22","shiftType":"MORNING","startTime":"08:00","endTime":"16:00","status":"COMPLETED","department":"General Ward"},
+{"id":"SHF-0012","staffId":"STF-0002","staffName":"Shirin Sultana","date":"2026-09-22","shiftType":"NIGHT","startTime":"20:00","endTime":"08:00","status":"CANCELLED","department":"ICU"} ]

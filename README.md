@@ -1,142 +1,120 @@
 <div align="center">
 
-<img src="logo.svg" alt="Hospital Management System Logo" width="360" />
+<img src="logo.svg" alt="Hospital Management System Logo" width="320" />
 
 # Hospital Management System
 ### Operations & Emergency Control Platform
 
-**A professional, desktop-first hospital operations system for patient care, staff management, emergency triage and appointments — built with Java 21 + JavaFX.**
+**Full hospital operations on desktop: patients, doctors, staff, appointments, emergency triage, beds, records, prescriptions, pharmacy, lab, billing, reports — Java 21 + JavaFX.**
 
 [![Java 21](https://img.shields.io/badge/Java-21%20LTS-ED8B00?style=flat-square&logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/21/)
 [![JavaFX](https://img.shields.io/badge/JavaFX-21.0.2-2563EB?style=flat-square&logo=javafx&logoColor=white)](https://openjfx.io/)
 [![Maven](https://img.shields.io/badge/Maven-3.8+-C71A36?style=flat-square&logo=apache-maven&logoColor=white)](https://maven.apache.org/)
 [![Jackson](https://img.shields.io/badge/Jackson-2.17.0-2E7D32?style=flat-square)](https://github.com/FasterXML/jackson)
-[![License: MIT](https://img.shields.io/badge/License-MIT-F8FAFC?style=flat-square&color=0F172A)](LICENSE)
-
-[Features](#-features) • [UI Preview](#-ui-design) • [Quick Start](#-quick-start) • [Architecture](#-architecture) • [Data](#-data--persistence) • [Tests](#-tests)
 
 </div>
 
 ---
 
-### Overview
+## Overview
 
-Hospital Management System is a **real hospital admin system**, not a demo. It manages the full daily workflow: register patients, manage doctors & duty schedules, triage emergency cases by medical priority, and schedule appointments with conflict detection — all with **zero-config JSON persistence** that auto-syncs on every change.
+Hospital Management System is a production-style desktop admin system: register patients, manage doctors/staff, triage emergencies by medical priority, schedule appointments with conflict detection, track beds/wards, keep medical records and prescriptions, manage pharmacy stock and lab tests, bill patients, and audit every action — all persisted to zero-config JSON.
 
-Designed as **clean, minimal and data-focused** — easy to scan, consistent spacing, clear hierarchy. No gradients, no glassmorphism, no animations.
+**Dual interface:** modern JavaFX desktop (dark Indigo default, light optional) + scriptable CLI, sharing the same service and repository layer.
 
-> **Dual Interface:** Modern **JavaFX Desktop (light professional)** + scriptable **CLI Console** — both share the same service & repository layer.
+## Features
 
----
-
-### ✨ Features
-
-| Module | What it does |
+| Module | Highlights |
 |---|---|
-| **Dashboard** | `Good Morning / Hospital Overview` + 4 KPI cards (Patients, Doctors Available, Emergency Waiting/Critical, Appointments Today) + Emergency Queue (priority → arrival) + Today's Appointments |
-| **Patients** | Search + table `Patient ID / Name / Gender / Blood Group / Phone / Status` + `View/Edit` → profile dialog with tabs: *Profile / Appointments / Emergency Cases / History* |
-| **Emergency** | **Triage-first** UI — `Critical Cases` (left red accent `3px #FECACA`) + `Emergency Queue` (`# · Patient · Priority · ID`) + actions `Start Treatment / Complete / Cancel`, `+ New Emergency Case` |
-| **Appointments** | Filters `Search / Date / Doctor / Status` + table `Date / Time / Patient / Doctor / Reason / Status` (`SCHEDULED/CONFIRMED/COMPLETED/CANCELLED` badges) + `+ New Appointment` modal with validation |
-| **Doctors** | Directory + `Search` + Availability `● Available #16A34A / ● Busy #D97706` + `Today's Schedule` + `View` |
-| **Doctor Schedule** | Per-doctor timeline `08:00–18:00` half-hour rows — `Available` / `Appointment` (blue left border) / `Conflict` (red) / `Unavailable` (dimmed), legend included |
-| **Reports / Settings** | Counts by status/priority, system info, theme & storage config |
+| Dashboard | KPI cards, emergency queue, today’s appointments |
+| Patients | CRUD, search, status, profile with history |
+| Emergency | Triage queue by severity×score, start/complete/cancel flow |
+| Appointments | Booking rules, no double-booking, status transitions |
+| Doctors / Staff | Directory, duty slots, availability, workload |
+| Beds / Wards | Assign/transfer/discharge, occupancy by ward |
+| Records / Rx | Medical records, prescriptions with items |
+| Pharmacy / Lab | Medicine stock + expiry, lab status pipeline |
+| Billing | Bills, payments (CASH/CARD/MOBILE_BANKING), status |
+| Reports / Audit | Operational reports + audit logs + notifications |
+| Auth / RBAC | SHA-256+salt accounts, role-based permissions |
 
-**Core guarantees:**
-- Collision-free IDs (`P-1001`, `D-1001`, `E-1001`, `A-1001`)
-- Doctor duty parsing (`09:00-13:00`) + availability check
-- No double-booking (doctor & patient, same `date+time`, `CANCELLED` excluded)
-- Emergency `PriorityQueue` — `CRITICAL > HIGH > MEDIUM > LOW`, FIFO in same priority, auto doctor assignment
-- Resilient JSON — missing/empty/corrupt file → warning + empty start, never crash
+IDs: `PAT-0001`, `DOC-0001`, `APT-0001`, `EMG-0001`, `STF-0001`, `WARD/BED/MRC/PRE/MED/LAB/BILL/PAY/ADM/NTF/LOG/ACC-0001`.
 
----
-
-### 🎨 UI Design
-
-**Direction:** Modern hospital admin — clean, professional, minimal, desktop-first.
-
-```
-┌──────────────────────────────────────────────────────────────┐
-│ Sidebar (240px)  │ Top Header (56px)                         │
-│                  ├──────────────────────────────────────────-┤
-│  Hospital Mgmt.  │ Good Morning / Hospital Overview          │
-│  Dashboard       │ [Patients 1,248] [Doctors 48] [Emergency] │
-│  PATIENT CARE    │ Emergency Queue      | Today's Appts      │
-│   Patients       │  CRITICAL Karim 10:21 Waiting            │
-│   Emergency      │                                           │
-│   Appointments   │                                           │
-│  STAFF           │                                           │
-│   Doctors        │                                           │
-└──────────────────────────────────────────────────────────────┘
-```
-
-**Sidebar:** `Hospital Management / Operations System` (`H` mark `#2563EB`), nav `Dashboard`, `PATIENT CARE → Patients/Emergency/Appointments`, `STAFF → Doctors/Doctor Schedule`, `SYSTEM → Reports/Settings`, active `#EFF6FF + left 3px #2563EB`, bottom `System Status ● Operational`.
-
-**Top Header:** `Search…` (`#F1F5F9`, focus `#2563EB`) + date `EEE, MMM d` + bell `◷` + `Admin / Administrator` + avatar `A`.
-
-**Design Tokens:** `Primary #2563EB` `BG #F8FAFC` `Surface #FFFFFF` `Text #0F172A` `Secondary #64748B` `Border #E2E8F0` `Success #16A34A` `Warning #D97706` `Danger #DC2626` · Font `Inter / Segoe UI` · Radius `8/6px` · Spacing `8/12/16/24` · Table row `10px`.
-
-> `src/main/resources/light-theme.css` — single source of truth, no inline gradients. `dark-theme.css` kept for reference.
-
----
-
-### 🛠 Tech Stack
+## Tech Stack
 
 | Layer | Choice |
 |---|---|
-| Language | **Java 21 LTS** |
-| UI | **JavaFX 21.0.2** (`controls`, `fxml`) — no FXML, code-based views |
-| Persistence | **Jackson 2.17.0** + `jackson-datatype-jsr310` (`JavaTimeModule`, `WRITE_DATES_AS_TIMESTAMPS=false`, `INDENT_OUTPUT`) |
-| Build | **Maven 3.8+** |
-| Test | **JUnit 3.8.1** + Surefire |
+| Language | Java 21 LTS |
+| UI | JavaFX 21.0.2 (code-based views, dark Indigo default) |
+| Persistence | Jackson 2.17.0 + jackson-datatype-jsr310 |
+| Build | Maven 3.8+ |
+| Test | JUnit 3.8.1 + Surefire |
 
-**Requirements:** Java 21, Maven 3.8+
-```bash
-java -version
-mvn -version
-```
-
----
-
-### 📁 Project Structure
+## Architecture
 
 ```
-Hospital-Management-System/
-├── pom.xml
-├── data/
-│   ├── patients.json
-│   ├── doctors.json
-│   ├── emergency_cases.json
-│   └── appointments.json
-└── src/main/java/com/hospital/
-    ├── App.java                      # Sidebar + TopBar + content router (light-theme.css)
-    ├── ConsoleApp.java               # CLI — 1..23 menu
-    ├── model/                        # Patient, Doctor, TimeSlot, Appointment, EmergencyCase + enums
-    ├── repository/                   # Repository<T>, AbstractJsonRepository<T>, Patient/Doctor/Emergency/AppointmentRepository
-    ├── service/                      # PatientService, DoctorService, EmergencyService, AppointmentService, HospitalService
-    ├── storage/                      # JsonStorage
-    ├── exception/                    # InvalidDataException
-    └── ui/
-        ├── AppState.java             # ObservableLists + layered services
-        ├── components/ SidebarView, TopBarView, StatCard, BadgeFactory, EmptyState
-        └── views/ Dashboard, Patients, Doctors, Emergency, Appointments, DoctorSchedule, Reports, Settings
+UI (views/components) → services (business rules) → repositories (JSON) → data/*.json
+AppState wires services + observable lists; ThemeManager loads dark (default) / light CSS.
 ```
 
----
+OOP: encapsulation in models, inheritance (Staff/User, repository base), polymorphism (Payable, Searchable, Reportable), interfaces across layers.
 
-### 🚀 Quick Start
+## Structure
+
+```
+pom.xml
+data/*.json                          seed + runtime persistence
+src/main/java/com/hospital/
+  App.java  ConsoleApp.java  Main.java
+  enums/ model/ repository/ service/ exception/ util/ storage/
+  ui/ AppState ThemeManager components/ views/
+src/main/resources/                  dark(default)/light × theme/surface/controls CSS
+src/test/java/com/hospital/          Day3 + Day4 + Auth/RBAC test suites
+```
+
+## How to Run
 
 ```bash
-# 1. Desktop — light professional dashboard
-mvn clean compile javafx:run
-# or
-mvn exec:java
+java -version && mvn -version          # Java 21, Maven 3.8+
 
-# 2. CLI — headless / demo
-mvn compile exec:java -Pconsole
-
-# 3. Jar
-mvn clean package
+mvn clean compile javafx:run           # Desktop app (dark theme)
+mvn compile exec:java -Pconsole        # CLI console
+mvn clean package                      # JAR → target/
 java -jar target/HospitalSystem-1.0-SNAPSHOT.jar
+
+mvn clean test                         # Unit tests
 ```
 
+Default credentials (seeded on first run):
+
+| Role | Username | Password |
+|---|---|---|
+| ADMIN | `admin` | `Admin123` |
+| DOCTOR | `doctor1` | `Doctor123` |
+| NURSE | `nurse1` | `Nurse1234` |
+| RECEPTIONIST | `reception1` | `Reception123` |
+| PHARMACIST | `pharmacist1` | `Pharma123` |
+| LAB_TECHNICIAN | `lab1` | `LabTech123` |
+
+Existing accounts in `data/user_accounts.json` are kept (not overwritten). Passwords above work as-is (no forced change on first login). New/changed passwords must meet: min 8 chars, upper, lower, digit. Failed logins lock after 3 attempts (last active admin is never locked).
+
+## Screenshots
+**Screenshots** (after `mvn javafx:run` — dark theme):
+- Dashboard (KPI cards, emergency queue, today’s appointments)
+- Emergency triage (critical cases + queue)
+- Appointments (filters + status badges + new booking modal)
+- Settings (Appearance → Toggle Dark / Light)
+
+## Data Persistence
+
+JSON files under `data/` (patients, doctors, appointments, emergency cases, wards, beds, medicines, staff, lab tests, medical records, prescriptions, bills, payments, admissions, notifications). Loaded via Jackson `JavaTimeModule`; missing/corrupt files warn and start empty. Saves are automatic on service writes. Default accounts are created on first run.
+
+## Future Improvements
+
+- Persist dark/light theme choice to `settings.json`
+- Barcode/QR patient wristband export; PDF bill/record export
+- Real-time websocket dashboard; multi-branch hospital support
+
 ---
+
+**Author:** Alif · MIT License

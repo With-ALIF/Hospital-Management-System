@@ -31,7 +31,7 @@ public class PatientsView {
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
         TableColumn<Patient,String> cId = col("Patient ID", 88, p -> p.getId());
         TableColumn<Patient,String> cName = col("Name", 150, p -> p.getName());
-        TableColumn<Patient,String> cGender = col("Gender", 80, p -> p.getGender());
+        TableColumn<Patient,String> cGender = col("Gender", 80, p -> p.getGenderName());
         TableColumn<Patient,String> cBlood = col("Blood Group", 92, p -> p.getBloodGroup());
         TableColumn<Patient,String> cPhone = col("Phone", 128, p -> p.getPhone());
         TableColumn<Patient,String> cStatus = new TableColumn<>("Status");
@@ -83,7 +83,7 @@ public class PatientsView {
         Label pid = new Label("Patient ID: "+p.getId()); pid.setStyle("-fx-font-size:12px;-fx-text-fill:#94A3B8;");
         VBox head = new VBox(2, name, pid); head.setPadding(new Insets(16,16,12,16)); head.setStyle("-fx-background-color:#1E293B;-fx-border-color:#334155;-fx-border-width:0 0 1 0;");
         GridPane grid = new GridPane(); grid.setHgap(24); grid.setVgap(8); grid.setPadding(new Insets(16));
-        addInfo(grid,0,0,"Gender", p.getGender()); addInfo(grid,1,0,"Blood Group", p.getBloodGroup()); addInfo(grid,0,1,"Phone", p.getPhone()); addInfo(grid,1,1,"Emergency", p.getEmergencyContact());
+        addInfo(grid,0,0,"Gender", p.getGenderName()); addInfo(grid,1,0,"Blood Group", p.getBloodGroup()); addInfo(grid,0,1,"Phone", p.getPhone()); addInfo(grid,1,1,"Emergency", p.getEmergencyContact());
         VBox infoCard = new VBox(grid); infoCard.getStyleClass().add("card"); infoCard.setPadding(new Insets(0));
         TabPane tabs = new TabPane(); tabs.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
         Tab t1 = new Tab("Appointments", buildAppointmentsTab(state, p)); Tab t2 = new Tab("Emergency Cases", buildEmergencyTab(state, p)); Tab t3 = new Tab("Treatment History", buildHistoryTab(state, p));
@@ -113,5 +113,5 @@ public class PatientsView {
     private static Pane buildHistoryTab(AppState state, Patient p){ VBox box = new VBox(6); box.setPadding(new Insets(12)); box.getChildren().add(new Label("Treatment history aggregates appointments and emergency cases for "+p.getName()){{setStyle("-fx-text-fill:#94A3B8;");}}); return box; }
     private static VBox emptyBox(String t,String s){ VBox b=new VBox(6); b.setAlignment(Pos.CENTER); b.setPadding(new Insets(24)); Label a=new Label(t); a.getStyleClass().add("empty-state-title"); Label b2=new Label(s); b2.getStyleClass().add("empty-state-sub"); b.getChildren().addAll(a,b2); return b; }
     private static String statusStyle(String s){ if(s==null) return "badge-neutral"; switch(s.toUpperCase()){ case "SCHEDULED": return "badge-info"; case "CONFIRMED": return "badge-success"; case "COMPLETED": return "badge-success"; case "CANCELLED": return "badge-danger"; case "WAITING": return "badge-warning"; case "IN_TREATMENT": return "badge-info"; default: return "badge-neutral"; } }
-    private static String prioStyle(String p){ if(p==null) return "badge-neutral"; switch(p.toUpperCase()){ case "CRITICAL": return "badge-critical"; case "HIGH": return "badge-high"; case "MEDIUM": return "badge-medium"; case "LOW": return "badge-low"; default: return "badge-neutral"; } }
+    private static String prioStyle(String p){ if(p==null) return "badge-neutral"; switch(p.toUpperCase()){ case "CRITICAL": return "badge-critical"; case "SERIOUS": case "HIGH": return "badge-high"; case "MODERATE": case "MEDIUM": return "badge-medium"; case "LOW": return "badge-low"; default: return "badge-neutral"; } }
 }

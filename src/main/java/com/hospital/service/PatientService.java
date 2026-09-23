@@ -7,13 +7,6 @@ import com.hospital.repository.PatientRepository;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Business logic for patients.
- *
- * The service validates the data, the repository stores it and
- * {@code data/patients.json} is written automatically after every change
- * (auto sync) - no manual save call is needed anywhere.
- */
 public class PatientService {
 
     private final PatientRepository repository;

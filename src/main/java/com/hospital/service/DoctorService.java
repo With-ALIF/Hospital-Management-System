@@ -7,13 +7,6 @@ import com.hospital.repository.DoctorRepository;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Business logic for doctors.
- *
- * Duty slots, availability and specialization are stored in
- * {@code data/doctors.json} and the file is written again automatically after
- * every change (auto sync).
- */
 public class DoctorService {
 
     private final DoctorRepository repository;
@@ -44,7 +37,6 @@ public class DoctorService {
         repository.delete(doctorId);
     }
 
-    /** Turns a doctor on / off duty; the change is saved immediately. */
     public Doctor setAvailability(String doctorId, boolean available) {
         Doctor doctor = repository.findById(doctorId)
                 .orElseThrow(() -> new InvalidDataException("Doctor not found: " + doctorId));

@@ -1,16 +1,5 @@
-[ {
-  "id" : "D-1001",
-  "name" : "Dr. Karim",
-  "phone" : "01700000001",
-  "gender" : "Male",
-  "role" : "DOCTOR",
-  "specialization" : "Cardiology",
-  "available" : false,
-  "dutySlots" : [ {
-    "startTime" : "09:00:00",
-    "endTime" : "13:00:00"
-  }, {
-    "startTime" : "15:00:00",
-    "endTime" : "18:00:00"
-  } ]
-} ]
+[ {"id":"DOC-0001","type":"DOCTOR","name":"Dr. Karim","phone":"01722220001","gender":"Male","role":"DOCTOR","specialization":"Cardiology","available":true,"dutySlots":[{"startTime":"09:00","endTime":"13:00"},{"startTime":"15:00","endTime":"18:00"}],"email":"karim@hospital.com"},
+{"id":"DOC-0002","type":"DOCTOR","name":"Dr. Nasrin","phone":"01722220002","gender":"Female","role":"DOCTOR","specialization":"Neurology","available":true,"dutySlots":[{"startTime":"10:00","endTime":"14:00"}],"email":"nasrin@hospital.com"},
+{"id":"DOC-0003","type":"DOCTOR","name":"Dr. Mahmud","phone":"01722220003","gender":"Male","role":"DOCTOR","specialization":"Orthopedics","available":true,"dutySlots":[{"startTime":"08:00","endTime":"12:00"},{"startTime":"14:00","endTime":"17:00"}],"email":"mahmud@hospital.com"},
+{"id":"DOC-0004","type":"DOCTOR","name":"Dr. Farhana","phone":"01722220004","gender":"Female","role":"DOCTOR","specialization":"Pediatrics","available":true,"dutySlots":[{"startTime":"09:00","endTime":"13:00"}],"email":"farhana@hospital.com"},
+{"id":"DOC-0005","type":"DOCTOR","name":"Dr. Rashid","phone":"01722220005","gender":"Male","role":"DOCTOR","specialization":"Emergency Medicine","available":true,"dutySlots":[{"startTime":"18:00","endTime":"23:59"}],"email":"rashid@hospital.com"} ]

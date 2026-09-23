@@ -1,0 +1,5 @@
+[ {"id":"AMB-0001","vehicleNumber":"DHK-A1-1001","driverName":"Jashim Uddin","driverPhone":"01811110001","type":"ICU","status":"AVAILABLE","currentLocation":"HOSPITAL","lastServiceDate":"2026-08-15","assignedTripId":null},
+{"id":"AMB-0002","vehicleNumber":"DHK-A1-1002","driverName":"Monir Ahmed","driverPhone":"01811110002","type":"ADVANCED","status":"ON_TRIP","currentLocation":"Gulshan-2","lastServiceDate":"2026-07-20","assignedTripId":"TRP-0001"},
+{"id":"AMB-0003","vehicleNumber":"CTG-A2-2001","driverName":"Selim Reza","driverPhone":"01811110003","type":"BASIC","status":"AVAILABLE","currentLocation":"HOSPITAL","lastServiceDate":"2026-09-01","assignedTripId":null},
+{"id":"AMB-0004","vehicleNumber":"DHK-A1-1003","driverName":"Abdul Karim","driverPhone":"01811110004","type":"BASIC","status":"MAINTENANCE","currentLocation":"GARAGE","lastServiceDate":"2026-05-10","assignedTripId":null},
+{"id":"AMB-0005","vehicleNumber":"SYL-A3-3001","driverName":"Rafiq Mia","driverPhone":"01811110005","type":"ADVANCED","status":"AVAILABLE","currentLocation":"HOSPITAL","lastServiceDate":"2026-08-28","assignedTripId":null} ]

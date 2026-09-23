@@ -44,7 +44,6 @@
 
   <build>
     <plugins>
-      <!-- JavaFX Maven Plugin for running: mvn javafx:run -->
       <plugin>
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-maven-plugin</artifactId>
@@ -54,7 +53,6 @@
         </configuration>
       </plugin>
 
-      <!-- Maven Exec Plugin to run directly with: mvn exec:java -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
@@ -64,7 +62,6 @@
         </configuration>
       </plugin>
 
-      <!-- Maven Jar Plugin to build executable JAR with: mvn package -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -81,11 +78,6 @@
   </build>
 
   <profiles>
-    <!--
-      Day 3 console client (JSON persistence menu).
-      Run with: mvn -q compile exec:java -Pconsole
-      The default exec:java / javafx:run goals keep starting the JavaFX interface.
-    -->
     <profile>
       <id>console</id>
       <build>
@@ -102,4 +94,3 @@
     </profile>
   </profiles>
 </project>
-

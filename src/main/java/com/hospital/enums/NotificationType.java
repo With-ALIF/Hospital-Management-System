@@ -1,0 +1,13 @@
+package com.hospital.enums;
+
+public enum NotificationType {
+    APPOINTMENT_REMINDER,
+    EMERGENCY_ALERT,
+    BED_AVAILABLE,
+    LOW_MEDICINE_STOCK,
+    MEDICINE_EXPIRY,
+    PENDING_LAB_TEST,
+    PAYMENT_DUE,
+    DISCHARGE_REMINDER,
+    GENERAL
+}

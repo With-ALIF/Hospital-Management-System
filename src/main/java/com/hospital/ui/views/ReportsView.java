@@ -48,10 +48,10 @@ public class ReportsView {
         rh.getStyleClass().add("section-title"); rh.setPadding(new Insets(14,16,10,16));
         VBox rRows = new VBox(0);
         long crit = state.emergencyCases.stream().filter(e-> "CRITICAL".equalsIgnoreCase(String.valueOf(e.getPriority()))).count();
-        long high = state.emergencyCases.stream().filter(e-> "HIGH".equalsIgnoreCase(String.valueOf(e.getPriority()))).count();
-        long med = state.emergencyCases.stream().filter(e-> "MEDIUM".equalsIgnoreCase(String.valueOf(e.getPriority()))).count();
+        long high = state.emergencyCases.stream().filter(e-> "SERIOUS".equalsIgnoreCase(String.valueOf(e.getPriority()))).count();
+        long med = state.emergencyCases.stream().filter(e-> "MODERATE".equalsIgnoreCase(String.valueOf(e.getPriority()))).count();
         long low = state.emergencyCases.stream().filter(e-> "LOW".equalsIgnoreCase(String.valueOf(e.getPriority()))).count();
-        rRows.getChildren().addAll(statRow("Critical", String.valueOf(crit), "#FCA5A5"), sep(), statRow("High", String.valueOf(high), "#FCD34D"), sep(), statRow("Medium", String.valueOf(med), "#A5B4FC"), sep(), statRow("Low", String.valueOf(low), "#94A3B8"));
+        rRows.getChildren().addAll(statRow("Critical", String.valueOf(crit), "#FCA5A5"), sep(), statRow("Serious", String.valueOf(high), "#FCD34D"), sep(), statRow("Moderate", String.valueOf(med), "#A5B4FC"), sep(), statRow("Low", String.valueOf(low), "#94A3B8"));
         right.getChildren().addAll(rh, new Separator(), rRows);
         HBox.setHgrow(left, Priority.ALWAYS);
         HBox.setHgrow(right, Priority.ALWAYS);

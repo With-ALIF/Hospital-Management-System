@@ -1,0 +1,217 @@
+[ {
+  "id" : "LOG-0001",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:27:15.1736977",
+  "description" : "Invalid password, attempts: 1"
+}, {
+  "id" : "LOG-0002",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:27:21.0245773",
+  "description" : "Invalid password, attempts: 2"
+}, {
+  "id" : "LOG-0003",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:27:22.9118843",
+  "description" : "Invalid password, attempts: 3"
+}, {
+  "id" : "LOG-0004",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:27:23.4390023",
+  "description" : "Invalid password, attempts: 4"
+}, {
+  "id" : "LOG-0005",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:27:23.6327695",
+  "description" : "Invalid password, attempts: 5"
+}, {
+  "id" : "LOG-0006",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:27:23.8075303",
+  "description" : "Invalid password, attempts: 6"
+}, {
+  "id" : "LOG-0007",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:27:23.9677697",
+  "description" : "Invalid password, attempts: 7"
+}, {
+  "id" : "LOG-0008",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:27:24.6400564",
+  "description" : "Invalid password, attempts: 8"
+}, {
+  "id" : "LOG-0009",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:27:24.8328672",
+  "description" : "Invalid password, attempts: 9"
+}, {
+  "id" : "LOG-0010",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:27:32.403526",
+  "description" : "Invalid password, attempts: 10"
+}, {
+  "id" : "LOG-0011",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:27:33.6002065",
+  "description" : "Invalid password, attempts: 11"
+}, {
+  "id" : "LOG-0012",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:27:33.7590841",
+  "description" : "Invalid password, attempts: 12"
+}, {
+  "id" : "LOG-0013",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:27:39.7823552",
+  "description" : "Invalid password, attempts: 13"
+}, {
+  "id" : "LOG-0014",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:27:40.8236102",
+  "description" : "Invalid password, attempts: 14"
+}, {
+  "id" : "LOG-0015",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:27:52.8633541",
+  "description" : "Invalid password, attempts: 15"
+}, {
+  "id" : "LOG-0016",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:30:44.1919597",
+  "description" : "Invalid password, attempts: 16"
+}, {
+  "id" : "LOG-0017",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:30:52.4630007",
+  "description" : "Invalid password, attempts: 17"
+}, {
+  "id" : "LOG-0018",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:30:52.8782546",
+  "description" : "Invalid password, attempts: 18"
+}, {
+  "id" : "LOG-0019",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:30:53.0701384",
+  "description" : "Invalid password, attempts: 19"
+}, {
+  "id" : "LOG-0020",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:30:53.2369663",
+  "description" : "Invalid password, attempts: 20"
+}, {
+  "id" : "LOG-0021",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:30:53.4207457",
+  "description" : "Invalid password, attempts: 21"
+}, {
+  "id" : "LOG-0022",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:30:53.6054903",
+  "description" : "Invalid password, attempts: 22"
+}, {
+  "id" : "LOG-0023",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:30:53.7835263",
+  "description" : "Invalid password, attempts: 23"
+}, {
+  "id" : "LOG-0024",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:30:53.9901412",
+  "description" : "Invalid password, attempts: 24"
+}, {
+  "id" : "LOG-0025",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:30:54.2150626",
+  "description" : "Invalid password, attempts: 25"
+}, {
+  "id" : "LOG-0026",
+  "actor" : "admin",
+  "action" : "LOGIN_SUCCESS",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:36:38.1943281",
+  "description" : "Role: ADMIN"
+}, {
+  "id" : "LOG-0027",
+  "actor" : "admin",
+  "action" : "LOGOUT",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-23T22:36:45.4951637",
+  "description" : "Session ended"
+} ]
