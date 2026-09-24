@@ -1,0 +1,25 @@
+# Line endings: LF in repo, native (CRLF on Windows) in working tree.
+# This stops the "LF will be replaced by CRLF" warning permanently.
+* text=auto
+
+*.java text
+*.css text
+*.fxml text
+*.xml text
+*.json text
+*.md text
+*.html text
+*.txt text
+*.properties text
+*.gitignore text
+*.gitattributes text
+
+# Images and binaries must never be converted.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text
+*.jar binary
+*.zip binary

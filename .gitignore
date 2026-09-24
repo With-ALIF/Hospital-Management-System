@@ -84,3 +84,6 @@ Desktop.ini
 # data/*.json is the demo seed data shipped with this project.
 # If you prefer to ignore generated runtime updates while keeping sample files,
 # you can customize rules here.
+
+# Runtime audit trail — never push to GitHub (local only).
+data/audit_logs.json

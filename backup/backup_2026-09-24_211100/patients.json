@@ -1,0 +1,10 @@
+[ {"id":"PAT-0001","name":"Rahim Uddin","phone":"01711110001","gender":"Male","role":"PATIENT","bloodGroup":"O+","emergencyContact":"01911110001","age":45,"address":"Dhaka"},
+{"id":"PAT-0002","name":"Karim Hossain","phone":"01711110002","gender":"Male","role":"PATIENT","bloodGroup":"A+","emergencyContact":"01911110002","age":67,"address":"Chattogram"},
+{"id":"PAT-0003","name":"Hasan Ali","phone":"01711110003","gender":"Male","role":"PATIENT","bloodGroup":"B+","emergencyContact":"01911110003","age":32,"address":"Sylhet"},
+{"id":"PAT-0004","name":"Sakib Ahmed","phone":"01711110004","gender":"Male","role":"PATIENT","bloodGroup":"O-","emergencyContact":"01911110004","age":28,"address":"Rajshahi"},
+{"id":"PAT-0005","name":"Nayeem Islam","phone":"01711110005","gender":"Male","role":"PATIENT","bloodGroup":"AB+","emergencyContact":"01911110005","age":54,"address":"Khulna"},
+{"id":"PAT-0006","name":"Fatema Begum","phone":"01711110006","gender":"Female","role":"PATIENT","bloodGroup":"A-","emergencyContact":"01911110006","age":39,"address":"Dhaka"},
+{"id":"PAT-0007","name":"Ayesha Rahman","phone":"01711110007","gender":"Female","role":"PATIENT","bloodGroup":"B-","emergencyContact":"01911110007","age":22,"address":"Barishal"},
+{"id":"PAT-0008","name":"Jahangir Khan","phone":"01711110008","gender":"Male","role":"PATIENT","bloodGroup":"O+","emergencyContact":"01911110008","age":71,"address":"Rangpur"},
+{"id":"PAT-0009","name":"Sumaiya Akter","phone":"01711110009","gender":"Female","role":"PATIENT","bloodGroup":"A+","emergencyContact":"01911110009","age":35,"address":"Mymensingh"},
+{"id":"PAT-0010","name":"Rafiqul Islam","phone":"01711110010","gender":"Male","role":"PATIENT","bloodGroup":"B+","emergencyContact":"01911110010","age":58,"address":"Cumilla"} ]

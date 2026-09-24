@@ -1,8 +1,101 @@
-[ {"id":"FLW-0001","patientId":"PAT-0001","doctorId":"DOC-0001","originalVisitId":"APT-0001","followUpDate":"2026-09-30","reason":"Post angina review","instructions":"Bring ECG reports","status":"SCHEDULED","dischargeId":null},
-{"id":"FLW-0002","patientId":"PAT-0005","doctorId":"DOC-0001","originalVisitId":"APT-0005","followUpDate":"2026-09-30","reason":"Post-op recovery check","instructions":"Wound care review","status":"SCHEDULED","dischargeId":null},
-{"id":"FLW-0003","patientId":"PAT-0004","doctorId":"DOC-0003","originalVisitId":"APT-0004","followUpDate":"2026-10-07","reason":"Knee rehab progress","instructions":"X-ray before visit","status":"SCHEDULED","dischargeId":null},
-{"id":"FLW-0004","patientId":"PAT-0006","doctorId":"DOC-0001","originalVisitId":"APT-0006","followUpDate":"2026-09-28","reason":"BP medication review","instructions":"Home BP diary","status":"SCHEDULED","dischargeId":null},
-{"id":"FLW-0005","patientId":"PAT-0008","doctorId":"DOC-0002","originalVisitId":"APT-0008","followUpDate":"2026-10-15","reason":"Memory assessment follow-up","instructions":"Family member present","status":"SCHEDULED","dischargeId":null},
-{"id":"FLW-0006","patientId":"PAT-0007","doctorId":"DOC-0005","originalVisitId":"APT-0010","followUpDate":"2026-09-20","reason":"Wound healing check","instructions":"","status":"COMPLETED","dischargeId":null},
-{"id":"FLW-0007","patientId":"PAT-0010","doctorId":"DOC-0005","originalVisitId":null,"followUpDate":"2026-09-19","reason":"Post discharge review","instructions":"","status":"MISSED","dischargeId":null},
-{"id":"FLW-0008","patientId":"PAT-0003","doctorId":"DOC-0002","originalVisitId":"APT-0003","followUpDate":"2026-10-01","reason":"Migraine medication review","instructions":"Headache diary","status":"SCHEDULED","dischargeId":null} ]
+[ {
+  "id" : "FLW-0001",
+  "patientId" : "PAT-0001",
+  "doctorId" : "DOC-0001",
+  "originalVisitId" : "APT-0001",
+  "followUpDate" : "2026-09-30",
+  "reason" : "Post angina review",
+  "instructions" : "Bring ECG reports",
+  "status" : "SCHEDULED",
+  "dischargeId" : null
+}, {
+  "id" : "FLW-0002",
+  "patientId" : "PAT-0005",
+  "doctorId" : "DOC-0001",
+  "originalVisitId" : "APT-0005",
+  "followUpDate" : "2026-09-30",
+  "reason" : "Post-op recovery check",
+  "instructions" : "Wound care review",
+  "status" : "SCHEDULED",
+  "dischargeId" : null
+}, {
+  "id" : "FLW-0003",
+  "patientId" : "PAT-0004",
+  "doctorId" : "DOC-0003",
+  "originalVisitId" : "APT-0004",
+  "followUpDate" : "2026-10-07",
+  "reason" : "Knee rehab progress",
+  "instructions" : "X-ray before visit",
+  "status" : "SCHEDULED",
+  "dischargeId" : null
+}, {
+  "id" : "FLW-0004",
+  "patientId" : "PAT-0006",
+  "doctorId" : "DOC-0001",
+  "originalVisitId" : "APT-0006",
+  "followUpDate" : "2026-09-28",
+  "reason" : "BP medication review",
+  "instructions" : "Home BP diary",
+  "status" : "SCHEDULED",
+  "dischargeId" : null
+}, {
+  "id" : "FLW-0005",
+  "patientId" : "PAT-0008",
+  "doctorId" : "DOC-0002",
+  "originalVisitId" : "APT-0008",
+  "followUpDate" : "2026-10-15",
+  "reason" : "Memory assessment follow-up",
+  "instructions" : "Family member present",
+  "status" : "SCHEDULED",
+  "dischargeId" : null
+}, {
+  "id" : "FLW-0006",
+  "patientId" : "PAT-0007",
+  "doctorId" : "DOC-0005",
+  "originalVisitId" : "APT-0010",
+  "followUpDate" : "2026-09-20",
+  "reason" : "Wound healing check",
+  "instructions" : "",
+  "status" : "COMPLETED",
+  "dischargeId" : null
+}, {
+  "id" : "FLW-0007",
+  "patientId" : "PAT-0010",
+  "doctorId" : "DOC-0005",
+  "originalVisitId" : null,
+  "followUpDate" : "2026-09-19",
+  "reason" : "Post discharge review",
+  "instructions" : "",
+  "status" : "MISSED",
+  "dischargeId" : null
+}, {
+  "id" : "FLW-0008",
+  "patientId" : "PAT-0003",
+  "doctorId" : "DOC-0002",
+  "originalVisitId" : "APT-0003",
+  "followUpDate" : "2026-10-01",
+  "reason" : "Migraine medication review",
+  "instructions" : "Headache diary",
+  "status" : "SCHEDULED",
+  "dischargeId" : null
+}, {
+  "id" : "FLW-0009",
+  "patientId" : "PAT-0001",
+  "doctorId" : "DOC-0002",
+  "originalVisitId" : null,
+  "followUpDate" : "2026-10-01",
+  "reason" : "jj",
+  "instructions" : "k",
+  "status" : "SCHEDULED",
+  "dischargeId" : null
+}, {
+  "id" : "FLW-0010",
+  "patientId" : "PAT-0003",
+  "doctorId" : "DOC-0006",
+  "originalVisitId" : null,
+  "followUpDate" : "2026-10-01",
+  "reason" : "cv x f",
+  "instructions" : "",
+  "status" : "SCHEDULED",
+  "dischargeId" : null
+} ]

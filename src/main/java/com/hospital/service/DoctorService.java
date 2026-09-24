@@ -1,8 +1,12 @@
 package com.hospital.service;
 
+import com.hospital.enums.Permission;
 import com.hospital.exception.InvalidDataException;
 import com.hospital.model.Doctor;
+import com.hospital.model.TimeSlot;
 import com.hospital.repository.DoctorRepository;
+
+import java.util.List;
 
 import java.util.List;
 import java.util.Optional;
@@ -41,6 +45,21 @@ public class DoctorService {
         Doctor doctor = repository.findById(doctorId)
                 .orElseThrow(() -> new InvalidDataException("Doctor not found: " + doctorId));
         doctor.setAvailable(available);
+        repository.update(doctor);
+        return doctor;
+    }
+
+    /**
+     * Admin-only schedule management (duty slots + availability).
+     * Internal flows (e.g. emergency auto-assign) use {@link #setAvailability}
+     * and are intentionally NOT guarded.
+     */
+    public Doctor updateSchedule(String doctorId, boolean available, List<TimeSlot> slots) {
+        PermissionService.getInstance().require(Permission.MANAGE_SCHEDULE);
+        Doctor doctor = repository.findById(doctorId)
+                .orElseThrow(() -> new InvalidDataException("Doctor not found: " + doctorId));
+        doctor.setAvailable(available);
+        doctor.setDutySlots(slots);
         repository.update(doctor);
         return doctor;
     }

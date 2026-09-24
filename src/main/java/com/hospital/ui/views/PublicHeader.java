@@ -13,13 +13,14 @@ import javafx.scene.layout.VBox;
 
 public class PublicHeader {
     public static HBox build(AppState state, Runnable onLogin,
-                             Runnable onDashboard, Runnable onEmergency) {
+                             Runnable onDashboard, Runnable onEmergency,
+                             Runnable onAppointment) {
         HBox bar = new HBox(16);
         bar.setAlignment(Pos.CENTER);
         bar.setPadding(new Insets(14, 28, 14, 28));
         bar.setStyle("-fx-background-color:#FFFFFF;"
                 + "-fx-border-color:#E2E8F0;-fx-border-width:0 0 1 0;");
-        bar.getChildren().addAll(logo(), spacer(), nav(onDashboard, onEmergency),
+        bar.getChildren().addAll(logo(), spacer(), nav(onDashboard, onEmergency, onAppointment),
                 loginBtn(onLogin));
         return bar;
     }
@@ -45,11 +46,12 @@ public class PublicHeader {
         return r;
     }
 
-    private static HBox nav(Runnable onDashboard, Runnable onEmergency) {
+    private static HBox nav(Runnable onDashboard, Runnable onEmergency, Runnable onAppointment) {
         HBox nav = new HBox(6);
         nav.getChildren().addAll(
                 link("Dashboard", onDashboard),
-                link("Emergency info", onEmergency));
+                link("Emergency info", onEmergency),
+                link("Request appointment", onAppointment));
         return nav;
     }
 

@@ -1,3 +1,56 @@
-[ {"id":"EMG-0001","patientId":"PAT-0002","priority":"CRITICAL","description":"Chest pain radiating to arm","status":"WAITING","arrivalTime":"2026-09-23T08:15:00","assignedDoctorId":null},
-{"id":"EMG-0002","patientId":"PAT-0004","priority":"SERIOUS","description":"Road accident injury","status":"WAITING","arrivalTime":"2026-09-23T08:40:00","assignedDoctorId":null},
-{"id":"EMG-0003","patientId":"PAT-0007","priority":"LOW","description":"Minor cut on hand","status":"IN_TREATMENT","arrivalTime":"2026-09-23T07:50:00","assignedDoctorId":"DOC-0005"} ]
+[ {
+  "id" : "EMG-0001",
+  "patientId" : "PAT-0002",
+  "priority" : "CRITICAL",
+  "description" : "Chest pain radiating to arm",
+  "status" : "IN_TREATMENT",
+  "arrivalTime" : "2026-09-23T08:15:00",
+  "assignedDoctorId" : "DOC-0001",
+  "assignedNurseId" : null,
+  "vitals" : null,
+  "priorityScore" : 0
+}, {
+  "id" : "EMG-0002",
+  "patientId" : "PAT-0004",
+  "priority" : "SERIOUS",
+  "description" : "Road accident injury",
+  "status" : "IN_TREATMENT",
+  "arrivalTime" : "2026-09-23T08:40:00",
+  "assignedDoctorId" : "DOC-0002",
+  "assignedNurseId" : null,
+  "vitals" : null,
+  "priorityScore" : 0
+}, {
+  "id" : "EMG-0003",
+  "patientId" : "PAT-0007",
+  "priority" : "LOW",
+  "description" : "Minor cut on hand",
+  "status" : "IN_TREATMENT",
+  "arrivalTime" : "2026-09-23T07:50:00",
+  "assignedDoctorId" : "DOC-0005",
+  "assignedNurseId" : null,
+  "vitals" : null,
+  "priorityScore" : 0
+}, {
+  "id" : "EMG-0004",
+  "patientId" : "PAT-0001",
+  "priority" : "MODERATE",
+  "description" : "f",
+  "status" : "IN_TREATMENT",
+  "arrivalTime" : "2026-09-24T21:09:39.3498127",
+  "assignedDoctorId" : "DOC-0003",
+  "assignedNurseId" : null,
+  "vitals" : null,
+  "priorityScore" : 50
+}, {
+  "id" : "EMG-0005",
+  "patientId" : "PAT-0001",
+  "priority" : "MODERATE",
+  "description" : "fv",
+  "status" : "IN_TREATMENT",
+  "arrivalTime" : "2026-09-24T22:28:43.7753954",
+  "assignedDoctorId" : "DOC-0001",
+  "assignedNurseId" : null,
+  "vitals" : null,
+  "priorityScore" : 50
+} ]

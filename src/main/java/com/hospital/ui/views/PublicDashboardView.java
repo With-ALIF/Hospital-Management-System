@@ -9,7 +9,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
 public class PublicDashboardView {
-    public static Node build(AppState state, Runnable onLogin) {
+    public static Node build(AppState state, Runnable onLogin,
+                             Runnable onAppointmentPage, Runnable onEmergencyPage) {
         VBox body = new VBox(22);
         body.setPadding(new Insets(28, 32, 40, 32));
         body.getChildren().addAll(
@@ -18,7 +19,6 @@ public class PublicDashboardView {
                         "Safe aggregate overview — no personal data shown",
                         PublicStatsCards.build(state)),
                 PublicDepartments.build(state),
-                PublicContactPanel.emergencyCard(),
                 PublicContactPanel.bloodCard(state),
                 PublicContactPanel.contactCard(),
                 footer());
@@ -26,7 +26,8 @@ public class PublicDashboardView {
 
         VBox page = new VBox(PublicHeader.build(state, onLogin,
                 () -> scrollTo(body, 0),
-                () -> scrollToId(body, "emergency")), scroll(body));
+                onEmergencyPage,
+                onAppointmentPage), scroll(body));
         page.setStyle("-fx-background-color:#E9EEF2;"
                 + "-fx-font-family:\"IBM Plex Sans\",\"Segoe UI\",Arial,sans-serif;");
         return page;

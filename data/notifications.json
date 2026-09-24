@@ -1,5 +1,65 @@
-[ {"id":"NTF-0001","type":"EMERGENCY_ALERT","title":"Critical case arrived","message":"EMG-0001 chest pain - PAT-0002","createdAt":"2026-09-23T08:15:00","read":false,"relatedId":"EMG-0001"},
-{"id":"NTF-0002","type":"LOW_MEDICINE_STOCK","title":"Low stock: Azithromycin","message":"12 units left, min 20","createdAt":"2026-09-23T07:00:00","read":false,"relatedId":"MED-0009"},
-{"id":"NTF-0003","type":"PENDING_LAB_TEST","title":"Lab test pending","message":"LAB-0004 requested, not collected","createdAt":"2026-09-23T06:30:00","read":false,"relatedId":"LAB-0004"},
-{"id":"NTF-0004","type":"APPOINTMENT_REMINDER","title":"Appointment today","message":"APT-0001 at 10:00","createdAt":"2026-09-23T06:00:00","read":true,"relatedId":"APT-0001"},
-{"id":"NTF-0005","type":"PAYMENT_DUE","title":"Payment due","message":"BILL-0003 unpaid","createdAt":"2026-09-23T10:00:00","read":false,"relatedId":"BILL-0003"} ]
+[ {
+  "id" : "NTF-0001",
+  "type" : "EMERGENCY_ALERT",
+  "title" : "Critical case arrived",
+  "message" : "EMG-0001 chest pain - PAT-0002",
+  "createdAt" : "2026-09-23T08:15:00",
+  "read" : false,
+  "relatedId" : "EMG-0001"
+}, {
+  "id" : "NTF-0002",
+  "type" : "LOW_MEDICINE_STOCK",
+  "title" : "Low stock: Azithromycin",
+  "message" : "12 units left, min 20",
+  "createdAt" : "2026-09-23T07:00:00",
+  "read" : false,
+  "relatedId" : "MED-0009"
+}, {
+  "id" : "NTF-0003",
+  "type" : "PENDING_LAB_TEST",
+  "title" : "Lab test pending",
+  "message" : "LAB-0004 requested, not collected",
+  "createdAt" : "2026-09-23T06:30:00",
+  "read" : false,
+  "relatedId" : "LAB-0004"
+}, {
+  "id" : "NTF-0004",
+  "type" : "APPOINTMENT_REMINDER",
+  "title" : "Appointment today",
+  "message" : "APT-0001 at 10:00",
+  "createdAt" : "2026-09-23T06:00:00",
+  "read" : true,
+  "relatedId" : "APT-0001"
+}, {
+  "id" : "NTF-0005",
+  "type" : "PAYMENT_DUE",
+  "title" : "Payment due",
+  "message" : "BILL-0003 unpaid",
+  "createdAt" : "2026-09-23T10:00:00",
+  "read" : false,
+  "relatedId" : "BILL-0003"
+}, {
+  "id" : "NTF-0006",
+  "type" : "APPOINTMENT_REMINDER",
+  "title" : "Follow-up scheduled",
+  "message" : "PAT-0001 on 2026-10-01",
+  "createdAt" : "2026-09-24T22:12:29.1220621",
+  "read" : false,
+  "relatedId" : "FLW-0009"
+}, {
+  "id" : "NTF-0007",
+  "type" : "APPOINTMENT_REMINDER",
+  "title" : "Follow-up scheduled",
+  "message" : "PAT-0001 on 2026-10-01",
+  "createdAt" : "2026-09-24T22:17:40.1073881",
+  "read" : false,
+  "relatedId" : "FLW-0001"
+}, {
+  "id" : "NTF-0008",
+  "type" : "APPOINTMENT_REMINDER",
+  "title" : "Follow-up scheduled",
+  "message" : "PAT-0003 on 2026-10-01",
+  "createdAt" : "2026-09-24T22:24:11.9599153",
+  "read" : false,
+  "relatedId" : "FLW-0010"
+} ]

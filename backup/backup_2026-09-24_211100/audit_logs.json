@@ -214,4 +214,36 @@
   "entityId" : "ACC-0001",
   "timestamp" : "2026-09-23T22:36:45.4951637",
   "description" : "Session ended"
+}, {
+  "id" : "LOG-0028",
+  "actor" : "admin",
+  "action" : "LOGIN_SUCCESS",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-24T21:04:26.7027948",
+  "description" : "Role: ADMIN"
+}, {
+  "id" : "LOG-0029",
+  "actor" : "admin",
+  "action" : "LOGOUT",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-24T21:05:35.5180724",
+  "description" : "Session ended"
+}, {
+  "id" : "LOG-0030",
+  "actor" : "admin",
+  "action" : "LOGIN_FAILED",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-24T21:08:33.5280088",
+  "description" : "Invalid password, attempts: 1"
+}, {
+  "id" : "LOG-0031",
+  "actor" : "admin",
+  "action" : "LOGIN_SUCCESS",
+  "entity" : "UserAccount",
+  "entityId" : "ACC-0001",
+  "timestamp" : "2026-09-24T21:08:42.7982471",
+  "description" : "Role: ADMIN"
 } ]

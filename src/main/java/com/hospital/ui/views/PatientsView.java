@@ -79,9 +79,9 @@ public class PatientsView {
     }
     private static void showDetail(AppState state, Patient p){
         Dialog<Void> d = new Dialog<>(); d.setTitle("Patient Profile"); d.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); d.getDialogPane().setPrefWidth(520);
-        Label name = new Label(p.getName()); name.setStyle("-fx-font-size:18px;-fx-font-weight:700;-fx-text-fill:#F1F5F9;");
-        Label pid = new Label("Patient ID: "+p.getId()); pid.setStyle("-fx-font-size:12px;-fx-text-fill:#94A3B8;");
-        VBox head = new VBox(2, name, pid); head.setPadding(new Insets(16,16,12,16)); head.setStyle("-fx-background-color:#1E293B;-fx-border-color:#334155;-fx-border-width:0 0 1 0;");
+        Label name = new Label(p.getName()); name.setStyle("-fx-font-size:18px;-fx-font-weight:700;-fx-text-fill:#FFFFFF;");
+        Label pid = new Label("Patient ID: "+p.getId()); pid.setStyle("-fx-font-size:12px;-fx-text-fill:#FFFFFF;");
+        VBox head = new VBox(2, name, pid); head.setPadding(new Insets(16,16,12,16)); head.setStyle("-fx-background-color:#4338CA;-fx-border-color:#312E81;-fx-border-width:0 0 1 0;");
         GridPane grid = new GridPane(); grid.setHgap(24); grid.setVgap(8); grid.setPadding(new Insets(16));
         addInfo(grid,0,0,"Gender", p.getGenderName()); addInfo(grid,1,0,"Blood Group", p.getBloodGroup()); addInfo(grid,0,1,"Phone", p.getPhone()); addInfo(grid,1,1,"Emergency", p.getEmergencyContact());
         VBox infoCard = new VBox(grid); infoCard.getStyleClass().add("card"); infoCard.setPadding(new Insets(0));

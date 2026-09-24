@@ -93,4 +93,73 @@ public class RbacPermissionTest extends TestCase {
         assertFalse(perms.canViewNav(null, "Dashboard"));
         assertFalse(perms.hasPermission(StaffRole.DOCTOR, null));
     }
+
+    public void testDoctorSeesOnlyDoctorModules() {
+        for (String item : new String[]{"Dashboard", "Patients", "Appointments",
+                "Emergency", "Operations", "Vital Monitoring", "Follow-Ups",
+                "Doctors", "Doctor Schedule", "Reports", "Profile"}) {
+            assertTrue("Doctor should view " + item,
+                    perms.canViewNav(StaffRole.DOCTOR, item));
+        }
+        for (String item : new String[]{"Blood Bank", "Ambulance", "Staff Shifts",
+                "Equipment", "Backups", "Settings", "User Management"}) {
+            assertFalse("Doctor should NOT view " + item,
+                    perms.canViewNav(StaffRole.DOCTOR, item));
+        }
+    }
+
+    public void testNurseSeesOnlyWardCareModules() {
+        for (String item : new String[]{"Dashboard", "Patients", "Emergency",
+                "Vital Monitoring", "Follow-Ups", "Blood Bank",
+                "Staff Shifts", "Equipment", "Profile"}) {
+            assertTrue("Nurse should view " + item,
+                    perms.canViewNav(StaffRole.NURSE, item));
+        }
+        for (String item : new String[]{"Appointments", "Operations", "Doctors",
+                "Doctor Schedule", "Ambulance", "Reports",
+                "Backups", "Settings", "User Management"}) {
+            assertFalse("Nurse should NOT view " + item,
+                    perms.canViewNav(StaffRole.NURSE, item));
+        }
+    }
+
+    public void testReceptionistSeesOnlyFrontDeskModules() {
+        for (String item : new String[]{"Dashboard", "Patients", "Appointments",
+                "Emergency", "Doctors", "Doctor Schedule", "Reports", "Profile"}) {
+            assertTrue("Receptionist should view " + item,
+                    perms.canViewNav(StaffRole.RECEPTIONIST, item));
+        }
+        for (String item : new String[]{"Operations", "Blood Bank", "Equipment",
+                "Staff Shifts", "Backups",
+                "Settings", "User Management"}) {
+            assertFalse("Receptionist should NOT view " + item,
+                    perms.canViewNav(StaffRole.RECEPTIONIST, item));
+        }
+    }
+
+    public void testPharmacistSeesOnlyDispensaryModules() {
+        for (String item : new String[]{"Dashboard", "Blood Bank", "Reports", "Profile"}) {
+            assertTrue("Pharmacist should view " + item,
+                    perms.canViewNav(StaffRole.PHARMACIST, item));
+        }
+        for (String item : new String[]{"Patients", "Equipment", "Appointments",
+                "Emergency", "Doctors", "Backups",
+                "Settings", "User Management"}) {
+            assertFalse("Pharmacist should NOT view " + item,
+                    perms.canViewNav(StaffRole.PHARMACIST, item));
+        }
+    }
+
+    public void testLabSeesOnlyLabModules() {
+        for (String item : new String[]{"Dashboard", "Reports", "Profile"}) {
+            assertTrue("Lab technician should view " + item,
+                    perms.canViewNav(StaffRole.LAB_TECHNICIAN, item));
+        }
+        for (String item : new String[]{"Patients", "Emergency", "Appointments",
+                "Doctors", "Blood Bank", "Equipment", "Backups",
+                "Settings", "User Management"}) {
+            assertFalse("Lab technician should NOT view " + item,
+                    perms.canViewNav(StaffRole.LAB_TECHNICIAN, item));
+        }
+    }
 }

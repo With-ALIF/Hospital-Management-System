@@ -23,20 +23,38 @@ final class RolePermissions {
     }
 
     private static Set<Permission> doctor() {
-        EnumSet<Permission> p = clinical();
+        // Doctor sees only doctor-related modules: no Blood Bank, Ambulance,
+        // Staff Shifts or Equipment (those stay with nurse/pharmacist/admin).
+        EnumSet<Permission> p = EnumSet.of(Permission.VIEW_DASHBOARD, Permission.VIEW_PROFILE,
+                Permission.VIEW_PATIENT, Permission.UPDATE_PATIENT,
+                Permission.VIEW_APPOINTMENT, Permission.VIEW_EMERGENCY,
+                Permission.VIEW_MEDICAL_RECORD, Permission.UPDATE_MEDICAL_RECORD,
+                Permission.VIEW_PRESCRIPTION, Permission.VIEW_LAB,
+                Permission.VIEW_VITALS, Permission.VIEW_OPERATION,
+                Permission.VIEW_FOLLOW_UPS, Permission.VIEW_ADMISSIONS,
+                Permission.VIEW_WARDS, Permission.VIEW_PHARMACY);
         p.addAll(EnumSet.of(Permission.CREATE_APPOINTMENT, Permission.UPDATE_APPOINTMENT,
                 Permission.DELETE_APPOINTMENT, Permission.CREATE_MEDICAL_RECORD,
                 Permission.CREATE_PRESCRIPTION, Permission.CREATE_LAB,
                 Permission.MANAGE_OPERATION, Permission.MANAGE_FOLLOW_UPS,
-                Permission.VIEW_DOCTORS, Permission.VIEW_EQUIPMENT,
-                Permission.VIEW_SHIFTS, Permission.REQUEST_BLOOD,
-                Permission.VIEW_AMBULANCE, Permission.VIEW_REPORTS,
+                Permission.VIEW_DOCTORS, Permission.REQUEST_BLOOD,
+                Permission.VIEW_REPORTS,
                 Permission.VIEW_NOTIFICATIONS, Permission.UPDATE_EMERGENCY));
         return p;
     }
 
     private static Set<Permission> nurse() {
-        EnumSet<Permission> p = clinical();
+        // Nurse sees only ward-care modules: no Appointments (front desk)
+        // and no Operations (doctor).
+        EnumSet<Permission> p = EnumSet.of(Permission.VIEW_DASHBOARD, Permission.VIEW_PROFILE,
+                Permission.VIEW_PATIENT, Permission.UPDATE_PATIENT,
+                Permission.VIEW_EMERGENCY,
+                Permission.VIEW_MEDICAL_RECORD, Permission.UPDATE_MEDICAL_RECORD,
+                Permission.VIEW_PRESCRIPTION, Permission.VIEW_LAB,
+                Permission.VIEW_VITALS, Permission.VIEW_FOLLOW_UPS,
+                Permission.VIEW_ADMISSIONS,
+                Permission.VIEW_WARDS, Permission.VIEW_PHARMACY,
+                Permission.VIEW_BLOOD_BANK);
         p.addAll(EnumSet.of(Permission.UPDATE_MEDICAL_RECORD, Permission.UPDATE_VITALS,
                 Permission.MANAGE_WARDS, Permission.MANAGE_ADMISSIONS,
                 Permission.MANAGE_EQUIPMENT, Permission.VIEW_SHIFTS,
@@ -59,20 +77,20 @@ final class RolePermissions {
     }
 
     private static Set<Permission> pharmacist() {
+        // Dispensary only: no Patients directory, no Equipment.
         return EnumSet.of(Permission.VIEW_DASHBOARD, Permission.VIEW_PROFILE,
                 Permission.VIEW_PHARMACY, Permission.MANAGE_PHARMACY,
                 Permission.VIEW_PRESCRIPTION, Permission.VIEW_MEDICAL_RECORD,
                 Permission.VIEW_BLOOD_BANK, Permission.MANAGE_BLOOD_BANK,
-                Permission.VIEW_PATIENT, Permission.VIEW_EQUIPMENT,
                 Permission.VIEW_REPORTS, Permission.VIEW_NOTIFICATIONS);
     }
 
     private static Set<Permission> lab() {
+        // Lab only: no Patients directory, no Emergency triage.
         return EnumSet.of(Permission.VIEW_DASHBOARD, Permission.VIEW_PROFILE,
                 Permission.VIEW_LAB, Permission.CREATE_LAB, Permission.UPDATE_LAB_RESULT,
-                Permission.VIEW_PATIENT, Permission.VIEW_MEDICAL_RECORD,
-                Permission.VIEW_REPORTS, Permission.VIEW_NOTIFICATIONS,
-                Permission.VIEW_EMERGENCY);
+                Permission.VIEW_MEDICAL_RECORD,
+                Permission.VIEW_REPORTS, Permission.VIEW_NOTIFICATIONS);
     }
 
     private static EnumSet<Permission> clinical() {

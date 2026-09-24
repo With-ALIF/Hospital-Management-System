@@ -1,0 +1,97 @@
+[ {
+  "id" : "DOC-0001",
+  "name" : "Dr. Karim",
+  "phone" : "01722220001",
+  "gender" : "MALE",
+  "role" : "DOCTOR",
+  "email" : "karim@hospital.com",
+  "joiningDate" : null,
+  "shift" : null,
+  "available" : false,
+  "specialization" : "Cardiology",
+  "dutySlots" : [ {
+    "startTime" : "09:00:00",
+    "endTime" : "13:00:00"
+  }, {
+    "startTime" : "15:00:00",
+    "endTime" : "18:00:00"
+  } ],
+  "licenseNumber" : null,
+  "consultationFee" : 0.0,
+  "genderName" : "MALE"
+}, {
+  "id" : "DOC-0002",
+  "name" : "Dr. Nasrin",
+  "phone" : "01722220002",
+  "gender" : "FEMALE",
+  "role" : "DOCTOR",
+  "email" : "nasrin@hospital.com",
+  "joiningDate" : null,
+  "shift" : null,
+  "available" : false,
+  "specialization" : "Neurology",
+  "dutySlots" : [ {
+    "startTime" : "10:00:00",
+    "endTime" : "14:00:00"
+  } ],
+  "licenseNumber" : null,
+  "consultationFee" : 0.0,
+  "genderName" : "FEMALE"
+}, {
+  "id" : "DOC-0003",
+  "name" : "Dr. Mahmud",
+  "phone" : "01722220003",
+  "gender" : "MALE",
+  "role" : "DOCTOR",
+  "email" : "mahmud@hospital.com",
+  "joiningDate" : null,
+  "shift" : null,
+  "available" : false,
+  "specialization" : "Orthopedics",
+  "dutySlots" : [ {
+    "startTime" : "08:00:00",
+    "endTime" : "12:00:00"
+  }, {
+    "startTime" : "14:00:00",
+    "endTime" : "17:00:00"
+  } ],
+  "licenseNumber" : null,
+  "consultationFee" : 0.0,
+  "genderName" : "MALE"
+}, {
+  "id" : "DOC-0004",
+  "name" : "Dr. Farhana",
+  "phone" : "01722220004",
+  "gender" : "FEMALE",
+  "role" : "DOCTOR",
+  "email" : "farhana@hospital.com",
+  "joiningDate" : null,
+  "shift" : null,
+  "available" : true,
+  "specialization" : "Pediatrics",
+  "dutySlots" : [ {
+    "startTime" : "09:00:00",
+    "endTime" : "13:00:00"
+  } ],
+  "licenseNumber" : null,
+  "consultationFee" : 0.0,
+  "genderName" : "FEMALE"
+}, {
+  "id" : "DOC-0005",
+  "name" : "Dr. Rashid",
+  "phone" : "01722220005",
+  "gender" : "MALE",
+  "role" : "DOCTOR",
+  "email" : "rashid@hospital.com",
+  "joiningDate" : null,
+  "shift" : null,
+  "available" : true,
+  "specialization" : "Emergency Medicine",
+  "dutySlots" : [ {
+    "startTime" : "18:00:00",
+    "endTime" : "23:59:00"
+  } ],
+  "licenseNumber" : null,
+  "consultationFee" : 0.0,
+  "genderName" : "MALE"
+} ]

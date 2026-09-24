@@ -1,0 +1,8 @@
+[ {"id":"BDR-0001","name":"Tanvir Hasan","phone":"01712340001","address":"Dhaka","bloodGroup":"O_POS","rhType":"POSITIVE","age":32,"gender":"Male","lastDonationDate":"2026-06-15","totalDonations":4},
+{"id":"BDR-0002","name":"Mehjabin Chowdhury","phone":"01712340002","address":"Chattogram","bloodGroup":"A_POS","rhType":"POSITIVE","age":28,"gender":"Female","lastDonationDate":"2026-08-01","totalDonations":2},
+{"id":"BDR-0003","name":"Rakibul Islam","phone":"01712340003","address":"Sylhet","bloodGroup":"B_POS","rhType":"POSITIVE","age":35,"gender":"Male","lastDonationDate":"2026-05-20","totalDonations":6},
+{"id":"BDR-0004","name":"Farhana Yasmin","phone":"01712340004","address":"Rajshahi","bloodGroup":"AB_POS","rhType":"POSITIVE","age":30,"gender":"Female","lastDonationDate":"2026-07-10","totalDonations":3},
+{"id":"BDR-0005","name":"Shahriar Kabir","phone":"01712340005","address":"Khulna","bloodGroup":"O_NEG","rhType":"NEGATIVE","age":40,"gender":"Male","lastDonationDate":"2026-04-05","totalDonations":8},
+{"id":"BDR-0006","name":"Nusrat Jahan","phone":"01712340006","address":"Dhaka","bloodGroup":"A_NEG","rhType":"NEGATIVE","age":26,"gender":"Female","lastDonationDate":"2026-08-20","totalDonations":1},
+{"id":"BDR-0007","name":"Imran Hossain","phone":"01712340007","address":"Barishal","bloodGroup":"B_NEG","rhType":"NEGATIVE","age":33,"gender":"Male","lastDonationDate":"2026-03-12","totalDonations":5},
+{"id":"BDR-0008","name":"Sabina Akter","phone":"01712340008","address":"Rangpur","bloodGroup":"O_POS","rhType":"POSITIVE","age":29,"gender":"Female","lastDonationDate":"2026-09-01","totalDonations":2} ]

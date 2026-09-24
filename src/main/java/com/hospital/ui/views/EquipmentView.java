@@ -88,7 +88,8 @@ public class EquipmentView {
         col(t, "Condition", "condition", 90);
         col(t, "Next Maint.", "nextMaintenance", 120);
         TableColumn<com.hospital.model.Equipment, String> st = new TableColumn<>("Status");
-        st.setCellValueFactory(new PropertyValueFactory<>("status"));
+        st.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(
+                d.getValue().getStatus() == null ? "" : d.getValue().getStatus().name()));
         st.setCellFactory(c -> new javafx.scene.control.TableCell<>() {
             @Override
             protected void updateItem(String item, boolean empty) {

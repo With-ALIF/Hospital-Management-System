@@ -86,7 +86,8 @@ public class BloodBankView {
         col(table, "Donor", "donorId", 110);
         col(table, "Location", "storageLocation", 120);
         TableColumn<com.hospital.model.BloodUnit, String> status = new TableColumn<>("Status");
-        status.setCellValueFactory(new PropertyValueFactory<>("status"));
+        status.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(
+                d.getValue().getStatus() == null ? "" : d.getValue().getStatus().name()));
         status.setCellFactory(c -> new javafx.scene.control.TableCell<>() {
             @Override
             protected void updateItem(String item, boolean empty) {

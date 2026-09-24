@@ -27,8 +27,12 @@ final class AppointmentsCreateDialog {
         doc.setPrefWidth(280);
         DatePicker date = new DatePicker(LocalDate.now());
         date.setPrefWidth(280);
-        TextField time = new TextField();
-        time.setPromptText("HH:MM e.g. 10:30");
+        ComboBox<String> time = new ComboBox<>(FXCollections.observableArrayList(
+                "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
+                "12:00", "12:30", "14:00", "14:30", "15:00", "15:30",
+                "16:00", "16:30", "17:00", "17:30", "18:00", "18:30",
+                "19:00", "19:30", "20:00"));
+        time.setPromptText("Select time");
         time.setPrefWidth(280);
         TextField reason = new TextField();
         reason.setPromptText("Reason");
@@ -51,14 +55,15 @@ final class AppointmentsCreateDialog {
     }
 
     private static void create(AppState state, ComboBox<String> pat, ComboBox<String> doc,
-                               DatePicker date, TextField time, TextField reason) {
+                               DatePicker date, ComboBox<String> time, TextField reason) {
         String pid = pat.getValue() != null ? pat.getValue().split(" — ")[0] : null;
         String did = doc.getValue() != null ? doc.getValue().split(" — ")[0] : null;
         if (pid == null || did == null || date.getValue() == null
-                || time.getText().isBlank() || reason.getText().isBlank()) {
+                || time.getValue() == null || time.getValue().isBlank()
+                || reason.getText().isBlank()) {
             throw new IllegalArgumentException("All fields are required");
         }
-        java.time.LocalTime t = java.time.LocalTime.parse(time.getText().trim());
+        java.time.LocalTime t = java.time.LocalTime.parse(time.getValue().trim());
         state.appointmentService.createAppointment(pid, did, date.getValue(), t, reason.getText().trim());
         state.refreshAppointments();
         AppointmentsDialogs.alert("Appointment created successfully.");

@@ -1,6 +1,7 @@
 package com.hospital;
 
 import com.hospital.ui.AppState;
+import com.hospital.ui.CssReloader;
 import com.hospital.ui.ThemeManager;
 import com.hospital.ui.views.*;
 import javafx.application.Application;
@@ -20,6 +21,7 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         window = new StackPane();
         scene = new Scene(window, 1280, 800);
+        CssReloader.watch(scene);
         shell = new AppShell(this, state, window, scene);
         ThemeManager.apply(scene, ThemeManager.LIGHT);
         showPublic();
@@ -43,7 +45,26 @@ public class App extends Application {
         shell.clear();
         pendingPage = null;
         window.getChildren().setAll(
-                PublicDashboardView.build(state, () -> showLogin(null)));
+                PublicDashboardView.build(state, () -> showLogin(null),
+                        this::showAppointmentRequest, this::showEmergencyInfo));
+    }
+
+    void showAppointmentRequest() {
+        ThemeManager.apply(scene, ThemeManager.LIGHT);
+        shell.clear();
+        pendingPage = null;
+        window.getChildren().setAll(
+                PublicAppointmentRequestPage.build(state, this::showPublic,
+                        () -> showLogin(null), this::showPublic, this::showEmergencyInfo));
+    }
+
+    void showEmergencyInfo() {
+        ThemeManager.apply(scene, ThemeManager.LIGHT);
+        shell.clear();
+        pendingPage = null;
+        window.getChildren().setAll(
+                PublicEmergencyInfoPage.build(state, this::showPublic,
+                        () -> showLogin(null), this::showPublic, this::showAppointmentRequest));
     }
 
     void showLogin(String requestedPage) {

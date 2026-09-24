@@ -1,7 +1,6 @@
 package com.hospital.ui.views;
 
 import com.hospital.ui.AppState;
-import com.hospital.ui.components.BadgeFactory;
 import com.hospital.ui.components.StatCard;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
@@ -27,44 +26,59 @@ public class VitalMonitoringView {
         Label sub = new Label("Threshold-based vital tracking with warning and critical alerts");
         sub.getStyleClass().add("page-subtitle");
 
-        int total = state.vitalMonitoringService.getCount();
-        int critical = state.vitalMonitoringService.getCritical().size();
-        int warning = state.vitalMonitoringService.getWarnings().size();
-
         HBox kpis = new HBox(16);
-        kpis.getChildren().addAll(
-                StatCard.create("Vital Records", String.valueOf(total),
-                        "All time", null),
-                StatCard.create("Critical Alerts", String.valueOf(critical),
-                        "Immediate attention", critical > 0 ? "kpi-sub-danger" : "kpi-sub-success"),
-                StatCard.create("Warnings", String.valueOf(warning),
-                        "Monitor closely", warning > 0 ? "kpi-sub-warning" : "kpi-sub-success"),
-                StatCard.create("Monitored Patients",
-                        String.valueOf(state.vitalMonitoringService.getAll().stream()
-                                .map(com.hospital.model.VitalRecord::getPatientId)
-                                .filter(java.util.Objects::nonNull).distinct().count()),
-                        "Unique", null)
-        );
-        for (var n : kpis.getChildren()) HBox.setHgrow((Region) n, Priority.ALWAYS);
-
-        HBox tools = new HBox(10);
+        TableView<com.hospital.model.VitalRecord> table = table();
         TextField search = new TextField();
         search.setPromptText("Search vitals by ID, patient, recorder, status...");
         search.getStyleClass().add("header-search");
         search.setPrefWidth(340);
+
+        Runnable refresh = () -> {
+            int total = state.vitalMonitoringService.getCount();
+            int critical = state.vitalMonitoringService.getCritical().size();
+            int warning = state.vitalMonitoringService.getWarnings().size();
+            kpis.getChildren().setAll(
+                    StatCard.create("Vital records", String.valueOf(total),
+                            "All time", null),
+                    StatCard.create("Critical alerts", String.valueOf(critical),
+                            "Immediate attention", critical > 0 ? "kpi-sub-danger" : "kpi-sub-success"),
+                    StatCard.create("Warnings", String.valueOf(warning),
+                            "Monitor closely", warning > 0 ? "kpi-sub-warning" : "kpi-sub-success"),
+                    StatCard.create("Monitored patients",
+                            String.valueOf(state.vitalMonitoringService.getAll().stream()
+                                    .map(com.hospital.model.VitalRecord::getPatientId)
+                                    .filter(java.util.Objects::nonNull).distinct().count()),
+                            "Unique", null)
+            );
+            for (var n : kpis.getChildren()) HBox.setHgrow((Region) n, Priority.ALWAYS);
+            String q = search.getText();
+            table.setItems(FXCollections.observableArrayList(
+                    q == null || q.isBlank()
+                            ? state.vitalMonitoringService.getAll()
+                            : state.vitalMonitoringService.search(q)));
+        };
+        refresh.run();
+
+        HBox tools = new HBox(10);
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
-        Button refresh = new Button("Refresh");
-        refresh.getStyleClass().addAll("btn-secondary", "btn-small");
-        refresh.setOnAction(e -> state.notifyChange());
+        Button record = new Button("+ Record Vitals");
+        record.getStyleClass().addAll("btn-primary", "btn-small");
+        record.setOnAction(e -> VitalRecordDialog.show(state, () -> {
+            state.notifyChange();
+            refresh.run();
+        }));
+        Button refreshBtn = new Button("Refresh");
+        refreshBtn.getStyleClass().addAll("btn-secondary", "btn-small");
+        refreshBtn.setOnAction(e -> {
+            state.notifyChange();
+            refresh.run();
+        });
 
-        TableView<com.hospital.model.VitalRecord> table = table();
-        table.setItems(FXCollections.observableArrayList(
-                state.vitalMonitoringService.getAll()));
         search.textProperty().addListener((o, a, b) ->
                 table.setItems(FXCollections.observableArrayList(
                         state.vitalMonitoringService.search(b))));
-        tools.getChildren().addAll(search, spacer, refresh);
+        tools.getChildren().addAll(search, spacer, record, refreshBtn);
 
         root.getChildren().addAll(new VBox(2, title, sub), kpis, tools, table);
         VBox.setVgrow(table, Priority.ALWAYS);
@@ -86,7 +100,8 @@ public class VitalMonitoringView {
         col(t, "RR", "respiratoryRate", 70);
         col(t, "By", "recordedBy", 100);
         TableColumn<com.hospital.model.VitalRecord, String> st = new TableColumn<>("Status");
-        st.setCellValueFactory(new PropertyValueFactory<>("overallStatus"));
+        st.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(
+                d.getValue().getOverallStatus() == null ? "" : d.getValue().getOverallStatus().name()));
         st.setCellFactory(c -> new javafx.scene.control.TableCell<>() {
             @Override
             protected void updateItem(String item, boolean empty) {

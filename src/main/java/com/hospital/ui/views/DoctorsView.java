@@ -89,10 +89,10 @@ public class DoctorsView {
     private static void show(Doctor d){
         Dialog<Void> dlg=new Dialog<>(); dlg.setTitle("Doctor — "+d.getName()); dlg.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
         VBox box=new VBox(12); box.setPadding(new Insets(16));
-        Label n=new Label(d.getName()); n.setStyle("-fx-font-size:16px;-fx-font-weight:700;-fx-text-fill:#F1F5F9;");
-        Label s=new Label(d.getSpecialization()+" • "+d.getId()); s.setStyle("-fx-text-fill:#94A3B8;");
-        HBox avail=new HBox(6); Region dot=new Region(); dot.getStyleClass().add(d.getAvailable()?"status-dot-available":"status-dot-busy"); Label av=new Label(d.getAvailable()?"Available":"Busy"); av.setStyle("-fx-font-weight:600;-fx-text-fill:"+(d.getAvailable()?"#4ADE80":"#FBBF24")+";"); avail.getChildren().addAll(dot,av); avail.setAlignment(Pos.CENTER_LEFT);
-        Label sched=new Label("Schedule: "+d.getDutyScheduleString()); sched.setStyle("-fx-text-fill:#CBD5E1;");
+        Label n=new Label(d.getName()); n.setStyle("-fx-font-size:16px;-fx-font-weight:700;-fx-text-fill:#10263B;");
+        Label s=new Label(d.getSpecialization()+" • "+d.getId()); s.setStyle("-fx-text-fill:#334155;");
+        HBox avail=new HBox(6); Region dot=new Region(); dot.getStyleClass().add(d.getAvailable()?"status-dot-available":"status-dot-busy"); Label av=new Label(d.getAvailable()?"Available":"Busy"); av.setStyle("-fx-font-weight:600;-fx-text-fill:"+(d.getAvailable()?"#15803D":"#B45309")+";"); avail.getChildren().addAll(dot,av); avail.setAlignment(Pos.CENTER_LEFT);
+        Label sched=new Label("Schedule: "+d.getDutyScheduleString()); sched.setStyle("-fx-text-fill:#10263B;");
         box.getChildren().addAll(n,s,avail, new Separator(), sched); dlg.getDialogPane().setContent(box); dlg.showAndWait();
     }
 }

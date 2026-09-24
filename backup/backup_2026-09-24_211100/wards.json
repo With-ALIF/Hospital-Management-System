@@ -1,0 +1,5 @@
+[ {"id":"WARD-0001","name":"General Ward A","type":"GENERAL","capacity":8},
+{"id":"WARD-0002","name":"ICU","type":"ICU","capacity":4},
+{"id":"WARD-0003","name":"CCU","type":"CCU","capacity":4},
+{"id":"WARD-0004","name":"Emergency Observation","type":"EMERGENCY","capacity":6},
+{"id":"WARD-0005","name":"Isolation Wing","type":"ISOLATION","capacity":4} ]

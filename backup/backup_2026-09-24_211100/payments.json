@@ -1,0 +1,2 @@
+[ {"id":"PAY-0001","billId":"BILL-0001","amount":1350.0,"method":"CASH","date":"2026-09-21T14:30:00","receiptNumber":"PAY-0001"},
+{"id":"PAY-0002","billId":"BILL-0002","amount":1000.0,"method":"CARD","date":"2026-09-23T09:15:00","receiptNumber":"PAY-0002"} ]

@@ -1,0 +1,10 @@
+[ {"type":"NURSE","id":"STF-0001","name":"Rina Akter","phone":"01733330001","gender":"Female","role":"NURSE","email":"rina@hospital.com","joiningDate":"2023-01-15","shift":"Day","available":true,"wardId":"WARD-0001"},
+{"type":"NURSE","id":"STF-0002","name":"Shirin Sultana","phone":"01733330002","gender":"Female","role":"NURSE","email":"shirin@hospital.com","joiningDate":"2022-06-01","shift":"Night","available":true,"wardId":"WARD-0002"},
+{"type":"NURSE","id":"STF-0003","name":"Momena Begum","phone":"01733330003","gender":"Female","role":"NURSE","email":"momena@hospital.com","joiningDate":"2024-03-10","shift":"Day","available":false,"wardId":"WARD-0003"},
+{"type":"RECEPTIONIST","id":"STF-0004","name":"Tanvir Alam","phone":"01733330004","gender":"Male","role":"RECEPTIONIST","email":"tanvir@hospital.com","joiningDate":"2023-09-01","shift":"Day","available":true},
+{"type":"RECEPTIONIST","id":"STF-0005","name":"Mitu Das","phone":"01733330005","gender":"Female","role":"RECEPTIONIST","email":"mitu@hospital.com","joiningDate":"2024-02-20","shift":"Evening","available":true},
+{"type":"PHARMACIST","id":"STF-0006","name":"Habibur Rahman","phone":"01733330006","gender":"Male","role":"PHARMACIST","email":"habib@hospital.com","joiningDate":"2021-11-05","shift":"Day","available":true},
+{"type":"PHARMACIST","id":"STF-0007","name":"Joya Sarkar","phone":"01733330007","gender":"Female","role":"PHARMACIST","email":"joya@hospital.com","joiningDate":"2024-07-12","shift":"Night","available":true},
+{"type":"LAB_TECHNICIAN","id":"STF-0008","name":"Arif Chowdhury","phone":"01733330008","gender":"Male","role":"LAB_TECHNICIAN","email":"arif@hospital.com","joiningDate":"2022-04-18","shift":"Day","available":true},
+{"type":"LAB_TECHNICIAN","id":"STF-0009","name":"Sadia Islam","phone":"01733330009","gender":"Female","role":"LAB_TECHNICIAN","email":"sadia@hospital.com","joiningDate":"2023-12-01","shift":"Night","available":true},
+{"type":"ADMIN","id":"STF-0010","name":"System Administrator","phone":"01733330010","gender":"Male","role":"ADMIN","email":"admin@hospital.com","joiningDate":"2020-01-01","shift":"Day","available":true} ]

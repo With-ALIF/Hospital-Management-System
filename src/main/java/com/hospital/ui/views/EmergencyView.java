@@ -1,8 +1,7 @@
 package com.hospital.ui.views;
 
-import com.hospital.model.EmergencyCase;
 import com.hospital.ui.AppState;
-import com.hospital.ui.components.BadgeFactory;
+import javafx.collections.ListChangeListener;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -21,18 +20,27 @@ public class EmergencyView {
         VBox headText = new VBox(2, title, sub);
         Button add = new Button("+ New Emergency Case");
         add.getStyleClass().addAll("btn-primary");
-        add.setOnAction(e -> EmergencyNewCaseDialog.show(state));
         HBox header = new HBox(12, headText, new Region(), add);
         header.setAlignment(Pos.CENTER_LEFT);
         HBox.setHgrow(header.getChildren().get(1), Priority.ALWAYS);
         HBox cols = new HBox(16);
-        VBox criticalCard = EmergencyCards.buildCriticalCard(state);
-        VBox queueCard = EmergencyCards.buildQueueCard(state);
-        HBox.setHgrow(criticalCard, Priority.ALWAYS);
-        HBox.setHgrow(queueCard, Priority.ALWAYS);
-        criticalCard.setPrefWidth(420);
-        queueCard.setPrefWidth(420);
-        cols.getChildren().addAll(criticalCard, queueCard);
+        Runnable refreshCards = () -> {
+            VBox criticalCard = EmergencyCards.buildCriticalCard(state);
+            VBox queueCard = EmergencyCards.buildQueueCard(state);
+            HBox.setHgrow(criticalCard, Priority.ALWAYS);
+            HBox.setHgrow(queueCard, Priority.ALWAYS);
+            criticalCard.setPrefWidth(420);
+            queueCard.setPrefWidth(420);
+            cols.getChildren().setAll(criticalCard, queueCard);
+        };
+        refreshCards.run();
+        // Auto-refresh panels when a case is added / started / completed / cancelled.
+        state.emergencyCases.addListener((ListChangeListener<? super Object>) c -> refreshCards.run());
+        add.setOnAction(e -> {
+            EmergencyNewCaseDialog.show(state);
+            state.refreshEmergency();
+            refreshCards.run();
+        });
         Button start = new Button("Start Treatment");
         start.getStyleClass().addAll("btn-primary");
         Button complete = new Button("Complete");
@@ -45,6 +53,7 @@ public class EmergencyView {
             try {
                 var c = state.emergencyService.startTreatment();
                 state.refreshEmergency();
+                refreshCards.run();
                 EmergencyDialogs.info("Treatment started for "
                         + EmergencyDialogs.patientName(state, c) + " • " + c.getId());
             } catch (Exception ex) {
@@ -56,6 +65,7 @@ public class EmergencyView {
             try {
                 state.emergencyService.completeTreatment(id);
                 state.refreshEmergency();
+                refreshCards.run();
                 EmergencyDialogs.info("Completed " + id);
             } catch (Exception ex) {
                 EmergencyDialogs.error(ex.getMessage());
@@ -66,6 +76,7 @@ public class EmergencyView {
             try {
                 state.emergencyService.cancelEmergencyCase(id);
                 state.refreshEmergency();
+                refreshCards.run();
                 EmergencyDialogs.info("Cancelled " + id);
             } catch (Exception ex) {
                 EmergencyDialogs.error(ex.getMessage());

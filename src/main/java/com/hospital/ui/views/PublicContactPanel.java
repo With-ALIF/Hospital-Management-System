@@ -94,7 +94,7 @@ public class PublicContactPanel {
         Label title = PublicDepartments.sectionTitle("Hospital contact");
         Label sub = PublicDepartments.sectionSub("We are here to help — reach us anytime");
         VBox lines = new VBox(8,
-                line("Address", "120 Healing Avenue, Medical District, City 10001"),
+                line("Address", "Gulshan Avenue, Dhaka 1212"),
                 line("Reception", "+1 (555) 010-2000"),
                 line("Emergency", "+1 (555) 010-9110"),
                 line("Email", "info@citygeneralhospital.org"),

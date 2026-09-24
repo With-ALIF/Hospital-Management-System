@@ -1,0 +1,6 @@
+[ {"id":"ORM-0001","name":"OT-1 General","type":"General Surgery","status":"OCCUPIED"},
+{"id":"ORM-0002","name":"OT-2 Ortho","type":"Orthopedics","status":"AVAILABLE"},
+{"id":"ORM-0003","name":"OT-3 Cardiac","type":"Cardiac Surgery","status":"AVAILABLE"},
+{"id":"ORM-0004","name":"OT-4 Emergency","type":"Trauma","status":"OCCUPIED"},
+{"id":"ORM-0005","name":"OT-5 Day Care","type":"Minor Procedure","status":"AVAILABLE"},
+{"id":"ORM-0006","name":"OT-6 Neuro","type":"Neurosurgery","status":"MAINTENANCE"} ]
