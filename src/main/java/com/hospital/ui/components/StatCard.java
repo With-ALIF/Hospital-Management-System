@@ -8,10 +8,11 @@ public class StatCard {
         VBox card = new VBox(6);
         card.getStyleClass().add("kpi-card");
         card.setPrefWidth(200);
-        Label t = new Label(title.toUpperCase());
+        // Sentence case: keep caller casing, no uppercase transform.
+        Label t = new Label(title);
         t.getStyleClass().add("kpi-label");
         Label v = new Label(value);
-        v.getStyleClass().add("kpi-value");
+        v.getStyleClass().addAll("kpi-value", "tnum");
         Label s = new Label(sub);
         s.getStyleClass().add("kpi-sub");
         if (subStyle != null) s.getStyleClass().add(subStyle);

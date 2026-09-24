@@ -20,13 +20,14 @@
 
 Hospital Management System is a production-style desktop admin system: register patients, manage doctors/staff, triage emergencies by medical priority, schedule appointments with conflict detection, track beds/wards, keep medical records and prescriptions, manage pharmacy stock and lab tests, bill patients, and audit every action — all persisted to zero-config JSON.
 
-**Dual interface:** modern JavaFX desktop (dark Indigo default, light optional) + scriptable CLI, sharing the same service and repository layer.
+**Flow:** Public Dashboard (no login) → Login → role-based private Dashboard → protected modules. Dual interface: JavaFX desktop (public light / private dark Indigo) + scriptable CLI, shared service/repository layer.
 
 ## Features
 
 | Module | Highlights |
 |---|---|
-| Dashboard | KPI cards, emergency queue, today’s appointments |
+| Public Dashboard | Aggregate stats only — no PHI, Login in header |
+| Dashboard | Role KPI cards, emergency queue, today’s appointments |
 | Patients | CRUD, search, status, profile with history |
 | Emergency | Triage queue by severity×score, start/complete/cancel flow |
 | Appointments | Booking rules, no double-booking, status transitions |
@@ -36,7 +37,7 @@ Hospital Management System is a production-style desktop admin system: register 
 | Pharmacy / Lab | Medicine stock + expiry, lab status pipeline |
 | Billing | Bills, payments (CASH/CARD/MOBILE_BANKING), status |
 | Reports / Audit | Operational reports + audit logs + notifications |
-| Auth / RBAC | SHA-256+salt accounts, role-based permissions |
+| Auth / RBAC | SHA-256+salt, session, Login Required redirect |
 
 IDs: `PAT-0001`, `DOC-0001`, `APT-0001`, `EMG-0001`, `STF-0001`, `WARD/BED/MRC/PRE/MED/LAB/BILL/PAY/ADM/NTF/LOG/ACC-0001`.
 
@@ -77,7 +78,7 @@ src/test/java/com/hospital/          Day3 + Day4 + Auth/RBAC test suites
 ```bash
 java -version && mvn -version          # Java 21, Maven 3.8+
 
-mvn clean compile javafx:run           # Desktop app (dark theme)
+mvn clean compile javafx:run           # Opens Public Dashboard (light)
 mvn compile exec:java -Pconsole        # CLI console
 mvn clean package                      # JAR → target/
 java -jar target/HospitalSystem-1.0-SNAPSHOT.jar
@@ -99,18 +100,17 @@ Default credentials (seeded on first run):
 Existing accounts in `data/user_accounts.json` are kept (not overwritten). Passwords above work as-is (no forced change on first login). New/changed passwords must meet: min 8 chars, upper, lower, digit. Failed logins lock after 3 attempts (last active admin is never locked).
 
 ## Screenshots
-**Screenshots** (after `mvn javafx:run` — dark theme):
-- Dashboard (KPI cards, emergency queue, today’s appointments)
+**Screenshots** (after `mvn javafx:run`):
+- Public Dashboard (white/blue, stats, departments, Login)
+- Login → role Dashboard (KPI cards, emergency queue)
 - Emergency triage (critical cases + queue)
 - Appointments (filters + status badges + new booking modal)
 - Settings (Appearance → Toggle Dark / Light)
 
 ## Data Persistence
-
 JSON files under `data/` (patients, doctors, appointments, emergency cases, wards, beds, medicines, staff, lab tests, medical records, prescriptions, bills, payments, admissions, notifications). Loaded via Jackson `JavaTimeModule`; missing/corrupt files warn and start empty. Saves are automatic on service writes. Default accounts are created on first run.
 
 ## Future Improvements
-
 - Persist dark/light theme choice to `settings.json`
 - Barcode/QR patient wristband export; PDF bill/record export
 - Real-time websocket dashboard; multi-branch hospital support

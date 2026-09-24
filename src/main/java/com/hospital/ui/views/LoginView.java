@@ -38,7 +38,7 @@ public class LoginView {
         Label error = new Label();
         error.setStyle("-fx-text-fill:#F87171;-fx-font-size:12px;");
         error.setWrapText(true);
-        Button login = new Button("LOGIN");
+        Button login = new Button("Log in");
         login.getStyleClass().addAll("btn-primary");
         login.setMaxWidth(Double.MAX_VALUE);
         Label forgot = new Label("Forgot Password");

@@ -14,40 +14,43 @@
     -fx-padding: 16;
 }
 .kpi-label {
-    -fx-font-size: 11px;
+    -fx-font-size: 12px;
     -fx-font-weight: 600;
-    -fx-text-fill: #64748B;
-    -fx-letter-spacing: 0.5px;
+    -fx-text-fill: #46647A;
 }
 .kpi-value {
     -fx-font-size: 26px;
     -fx-font-weight: 700;
-    -fx-text-fill: #0F172A;
+    -fx-text-fill: #10263B;
+    -fx-font-family: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+}
+.tnum {
+    -fx-font-family: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
 }
 .kpi-sub {
-    -fx-font-size: 11.5px;
-    -fx-text-fill: #64748B;
+    -fx-font-size: 12px;
+    -fx-text-fill: #46647A;
 }
-.kpi-sub-success { -fx-text-fill: #16A34A; }
-.kpi-sub-warning { -fx-text-fill: #D97706; }
-.kpi-sub-danger { -fx-text-fill: #DC2626; }
+.kpi-sub-success { -fx-text-fill: #15803D; }
+.kpi-sub-warning { -fx-text-fill: #8A6D00; }
+.kpi-sub-danger { -fx-text-fill: #B91C1C; }
 .page-title {
     -fx-font-size: 20px;
     -fx-font-weight: 700;
-    -fx-text-fill: #0F172A;
+    -fx-text-fill: #10263B;
 }
 .page-subtitle {
     -fx-font-size: 13px;
-    -fx-text-fill: #64748B;
+    -fx-text-fill: #46647A;
 }
 .section-title {
     -fx-font-size: 13px;
     -fx-font-weight: 700;
-    -fx-text-fill: #1E293B;
+    -fx-text-fill: #10263B;
 }
 .section-subtitle {
     -fx-font-size: 12px;
-    -fx-text-fill: #64748B;
+    -fx-text-fill: #46647A;
 }
 .badge {
     -fx-font-size: 10.5px;
@@ -68,9 +71,9 @@
     -fx-border-color: #FDE68A;
 }
 .badge-medium {
-    -fx-background-color: #E0E7FF;
-    -fx-text-fill: #4338CA;
-    -fx-border-color: #C7D2FE;
+    -fx-background-color: #E2EBEF;
+    -fx-text-fill: #0B5C75;
+    -fx-border-color: #B9D2DB;
 }
 .badge-low {
     -fx-background-color: #F1F5F9;
@@ -98,13 +101,24 @@
     -fx-border-color: #E2E8F0;
 }
 .badge-info {
-    -fx-background-color: #E0E7FF;
-    -fx-text-fill: #4338CA;
-    -fx-border-color: #C7D2FE;
+    -fx-background-color: #E2EBEF;
+    -fx-text-fill: #0B5C75;
+    -fx-border-color: #B9D2DB;
 }
-.status-dot-available { -fx-background-color: #22C55E; -fx-background-radius: 4; -fx-min-width: 7; -fx-min-height: 7; -fx-max-width: 7; -fx-max-height: 7; }
-.status-dot-busy { -fx-background-color: #F59E0B; -fx-background-radius: 4; -fx-min-width: 7; -fx-min-height: 7; -fx-max-width: 7; -fx-max-height: 7; }
+.status-dot-available { -fx-background-color: #16A34A; -fx-background-radius: 4; -fx-min-width: 7; -fx-min-height: 7; -fx-max-width: 7; -fx-max-height: 7; }
+.status-dot-busy { -fx-background-color: #8A6D00; -fx-background-radius: 4; -fx-min-width: 7; -fx-min-height: 7; -fx-max-width: 7; -fx-max-height: 7; }
 .status-dot-offline { -fx-background-color: #94A3B8; -fx-background-radius: 4; -fx-min-width: 7; -fx-min-height: 7; -fx-max-width: 7; -fx-max-height: 7; }
-.empty-state-title { -fx-font-size: 13px; -fx-font-weight: 600; -fx-text-fill: #1E293B; }
-.empty-state-sub { -fx-font-size: 12px; -fx-text-fill: #64748B; }
-.label { -fx-text-fill: #334155; }
+.empty-state-title { -fx-font-size: 13px; -fx-font-weight: 600; -fx-text-fill: #10263B; }
+.empty-state-sub { -fx-font-size: 12px; -fx-text-fill: #46647A; }
+.label { -fx-text-fill: #10263B; }
+/* Grouped stat panels with dividers */
+.stat-group { -fx-background-color: #FFFFFF; -fx-border-color: #D7DEE4; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 16; }
+.stat-group-title { -fx-font-size: 13px; -fx-font-weight: 700; -fx-text-fill: #10263B; }
+.stat-group-sub { -fx-font-size: 12px; -fx-text-fill: #46647A; }
+.stat-divider { -fx-background-color: #D7DEE4; }
+/* Bed availability bar */
+.bed-bar-track { -fx-background-color: #E2E8F0; -fx-background-radius: 6; -fx-min-height: 10; -fx-max-height: 10; }
+.bed-bar-fill { -fx-background-color: #0B5C75; -fx-background-radius: 6; }
+/* Emergency: red reserved for this panel only */
+.emergency-card { -fx-background-color: #FFFFFF; -fx-border-color: #E2E8F0; -fx-border-width: 1 1 1 1; -fx-border-radius: 10; -fx-background-radius: 10; }
+.emergency-accent { -fx-background-color: #C1272D; -fx-background-radius: 4; -fx-min-width: 4; -fx-max-width: 4; }
